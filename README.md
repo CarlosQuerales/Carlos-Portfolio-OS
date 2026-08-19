@@ -1,163 +1,58 @@
 # Carlos Portfolio OS
 
-> A modern engineering portfolio designed to showcase real-world software development, Customer Success Engineering and technical problem solving.
+Personal portfolio built with Next.js (App Router), React, JavaScript (JSDoc-typed, not TypeScript), and Tailwind CSS v4. Deployed on Netlify.
 
----
+## Getting started
 
-## Vision
+```bash
+npm install
+npm run dev
+```
 
-Carlos Portfolio OS is more than a personal portfolio.
+Open http://localhost:3000.
 
-It is a living software project built following real software engineering practices.
+## Scripts
 
-The objective is to demonstrate not only technical skills, but also architecture decisions, documentation quality, collaboration workflow and continuous improvement.
+| Command                | What it does                       |
+| ---------------------- | ---------------------------------- |
+| `npm run dev`          | Local dev server                   |
+| `npm run build`        | Production build                   |
+| `npm run start`        | Serve the production build locally |
+| `npm run lint`         | ESLint                             |
+| `npm run format`       | Prettier, writes changes           |
+| `npm run format:check` | Prettier, check-only (used in CI)  |
 
-Instead of showing "what I know", this project demonstrates **how I work**.
+## Architecture
 
----
+Full reasoning lives in the Phase 1 architecture doc (shared separately), but the load-bearing idea:
 
-# Project Goals
+**No component fetches content directly.** Every page gets content by calling a function from `src/services/content.js` — today those functions read from plain JS modules in `src/data/`. When WordPress headless or the AI/RAG assistant get built, the rewrite happens once, inside `services/`, and no page or component changes.
 
-- Build a modern portfolio using Next.js.
-- Showcase real-world projects.
-- Publish technical case studies.
-- Demonstrate React and modern Front-end development.
-- Showcase WordPress engineering.
-- Integrate Artificial Intelligence features.
-- Follow Agile development practices.
-- Maintain production-quality documentation.
+```
+src/
+  app/            routes only (App Router)
+  components/
+    ui/           dumb primitives — no data, no fetching
+    layout/       Navbar, Footer, SkipToContent
+    sections/     composed, page-specific (Hero, Timeline, ProjectCard...)
+  data/           content, as plain JS + JSDoc typedefs
+  services/
+    content.js    the abstraction layer — call this, not data/ directly
+    wordpress/    reserved, not implemented yet
+    ai/           reserved, not implemented yet
+  lib/            seo.js, constants.js, analytics.js
+  hooks/          useTheme.js
+```
 
----
+## Before this ships — replace placeholder content
 
-# Target Roles
+Every file with a `TODO(carlos)` comment has structurally-correct but placeholder content. Non-exhaustive list:
 
-- Front-End Developer
-- Software Engineer
-- Technical Solutions Engineer
-- Customer Success Engineer
-- Solutions Consultant
+- `src/lib/constants.js` — real GitHub/LinkedIn/email links
+- `src/data/profile.js`, `experience.js`, `projects.js`, `case-studies.js` — real bio, real dates, real numbers
+- `src/app/api/contact/route.js` — currently logs and returns success; wire a real email provider (Resend recommended) before relying on the contact form
+- `public/og-default.png` — add a real Open Graph image (referenced in `src/lib/seo.js`, doesn't exist yet)
 
----
+## Deployment (Netlify)
 
-# Tech Stack
-
-Frontend
-
-- Next.js
-- React
-- JavaScript
-- Tailwind CSS
-
-Backend
-
-- Next.js API Routes
-- Node.js
-
-CMS
-
-- WordPress (Headless)
-
-Development
-
-- Git
-- GitHub
-- GitHub Projects
-- GitHub Actions
-
-Deployment
-
-- Netlify
-
-Future
-
-- OpenAI API
-- RAG
-- Vector Database
-
----
-
-# Current Status
-
-Current Version
-
-v1.0.0 (Foundation)
-
-Current Sprint
-
-Sprint 1
-
-Status
-
-Project Initialization
-
----
-
-# Roadmap
-
-✅ Foundation
-
-⬜ Design System
-
-⬜ Portfolio
-
-⬜ Projects
-
-⬜ Case Studies
-
-⬜ WordPress
-
-⬜ AI
-
-⬜ Testing
-
-⬜ Deployment
-
----
-
-# Repository Structure
-
-(To be updated)
-
----
-
-# Development Workflow
-
-Backlog
-
-↓
-
-Ready
-
-↓
-
-In Progress
-
-↓
-
-Review
-
-↓
-
-Done
-
----
-
-# Author
-
-Carlos Miguel Querales
-
-Customer Success Engineer
-
-Front-End Developer
-
-Software Engineer
-
-LinkedIn
-
-Portfolio
-
-GitHub
-
----
-
-> Every commit, issue, pull request and release in this repository is part of the portfolio itself.
+`netlify.toml` is already configured (`@netlify/plugin-nextjs`, Node 20). Connect the repo in the Netlify dashboard — no manual build settings needed.
