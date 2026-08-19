@@ -1,0 +1,69 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens — the single source of truth for the palette and type
+ * scale agreed in the roadmap doc. Deliberately not the generic
+ * near-black + acid-green/vermilion "AI portfolio" default: this uses a
+ * warm ink (not pure black) paired with a muted teal, not a saturated
+ * neon accent.
+ */
+:root[data-theme='dark'] {
+  --bg: #0f1115;
+  --surface: #171a20;
+  --fg: #f2f1ed;
+  --fg-muted: #9ba0aa;
+  --border: #262b33;
+  --accent: #2aa198;
+  --accent-hover: #35b8ae;
+  --accent-contrast: #0f1115;
+}
+
+:root[data-theme='light'] {
+  --bg: #f7f6f3;
+  --surface: #ffffff;
+  --fg: #14171a;
+  --fg-muted: #5b6169;
+  --border: #e3e1db;
+  --accent: #1f7d75;
+  --accent-hover: #196a63;
+  --accent-contrast: #f7f6f3;
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-fg: var(--fg);
+  --color-fg-muted: var(--fg-muted);
+  --color-border: var(--border);
+  --color-accent: var(--accent);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-contrast: var(--accent-contrast);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-heading);
+}
+
+html {
+  color-scheme: dark;
+}
+html[data-theme='light'] {
+  color-scheme: light;
+}
+
+body {
+  background-color: var(--color-bg);
+  color: var(--color-fg);
+  font-family: var(--font-sans);
+}
+
+/* Respect reduced-motion preferences site-wide. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
