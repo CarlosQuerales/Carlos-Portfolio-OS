@@ -5,7 +5,7 @@ import { getExperience } from '@/services/content';
 
 export const metadata = buildMetadata({
   title: 'Experience',
-  description: 'Career history and quantified outcomes.',
+  description: 'Technical experience across customer success and web development.',
   path: '/experience',
 });
 
@@ -18,8 +18,9 @@ export default function ExperiencePage() {
         Experience
       </h1>
       <p className="text-fg-muted mt-4 max-w-2xl text-lg leading-relaxed">
-        Every highlight below should carry a real number by the time this ships — a claim
-        without a metric is not evidence.
+        More than a decade of experience connecting customer needs, technical
+        investigation, and web delivery. This overview focuses on the work I can discuss
+        publicly without exposing confidential client or employer information.
       </p>
 
       <div className="mt-12">

@@ -22,9 +22,15 @@ Open http://localhost:3000.
 | `npm run format`       | Prettier, writes changes           |
 | `npm run format:check` | Prettier, check-only (used in CI)  |
 
-## Architecture
+## What this project demonstrates
 
-Full reasoning lives in the Phase 1 architecture doc (shared separately), but the load-bearing idea:
+- A production Next.js App Router site deployed on Netlify
+- Reusable components and centralized content models
+- SEO metadata generated consistently across routes
+- A service layer that separates pages from their current content source
+- Recruiter-facing project and case-study pages with honest, public-safe copy
+
+## Architecture
 
 **No component fetches content directly.** Every page gets content by calling a function from `src/services/content.js` — today those functions read from plain JS modules in `src/data/`. When WordPress headless or the AI/RAG assistant get built, the rewrite happens once, inside `services/`, and no page or component changes.
 
@@ -38,21 +44,10 @@ src/
   data/           content, as plain JS + JSDoc typedefs
   services/
     content.js    the abstraction layer — call this, not data/ directly
-    wordpress/    reserved, not implemented yet
-    ai/           reserved, not implemented yet
   lib/            seo.js, constants.js, analytics.js
   hooks/          useTheme.js
 ```
 
-## Before this ships — replace placeholder content
-
-Every file with a `TODO(carlos)` comment has structurally-correct but placeholder content. Non-exhaustive list:
-
-- `src/lib/constants.js` — real GitHub/LinkedIn/email links
-- `src/data/profile.js`, `experience.js`, `projects.js`, `case-studies.js` — real bio, real dates, real numbers
-- `src/app/api/contact/route.js` — currently logs and returns success; wire a real email provider (Resend recommended) before relying on the contact form
-- `public/og-default.png` — add a real Open Graph image (referenced in `src/lib/seo.js`, doesn't exist yet)
-
 ## Deployment (Netlify)
 
-`netlify.toml` is already configured (`@netlify/plugin-nextjs`, Node 20). Connect the repo in the Netlify dashboard — no manual build settings needed.
+`netlify.toml` configures the Netlify Next.js plugin and Node 20. The public deployment is available at [carlosmqueralesporfolio.netlify.app](https://carlosmqueralesporfolio.netlify.app/).

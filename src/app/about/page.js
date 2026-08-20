@@ -20,6 +20,13 @@ export default function AboutPage() {
         {profile.summary}
       </p>
 
+      <p className="text-fg-muted mt-4 max-w-2xl text-lg leading-relaxed">
+        My strongest work happens at the intersection of code, troubleshooting, and
+        communication: understanding what is happening in the product, explaining it
+        without unnecessary jargon, and helping customers and internal teams reach a
+        practical next step.
+      </p>
+
       <h2 className="font-display text-fg-muted mt-12 text-sm font-semibold tracking-wide uppercase">
         Focus areas
       </h2>
@@ -30,11 +37,6 @@ export default function AboutPage() {
           </Badge>
         ))}
       </div>
-
-      {/* TODO(carlos): this is the single most important page to write in
-          your own voice — a bio, not a bullet list. Cover: how you got into
-          CS engineering, what you actually enjoy about the intersection of
-          support and code, and one concrete story that shows it. */}
     </Section>
   );
 }

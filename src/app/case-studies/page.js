@@ -5,7 +5,7 @@ import { getCaseStudies } from '@/services/content';
 
 export const metadata = buildMetadata({
   title: 'Case Studies',
-  description: 'Problem, approach, and quantified result for real work.',
+  description: 'Technical problems, practical approaches, and honest outcomes.',
   path: '/case-studies',
 });
 
@@ -18,8 +18,8 @@ export default function CaseStudiesPage() {
         Case Studies
       </h1>
       <p className="text-fg-muted mt-4 max-w-2xl text-lg leading-relaxed">
-        Problem, approach, and a real number for the result — that&apos;s the whole
-        format, deliberately, every time.
+        A clear look at how I frame technical problems, evaluate tradeoffs, and
+        communicate outcomes. Metrics appear only when they can be shared and verified.
       </p>
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">

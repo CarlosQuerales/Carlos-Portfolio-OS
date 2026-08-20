@@ -9,7 +9,7 @@ export const SITE_NAME = 'Carlos Querales';
 export const SITE_TAGLINE =
   'Front-End Developer & Customer Success Engineer — I sit between engineering and customer outcomes.';
 
-export const SITE_URL = 'https://carlosmquerales.netlify.app';
+export const SITE_URL = 'https://carlosmqueralesporfolio.netlify.app';
 
 /**
  * Only routes that are actually built ship in the nav.
@@ -26,10 +26,7 @@ export const NAV_ITEMS = [
   { label: 'Contact', href: '/contact' },
 ];
 
-// TODO(carlos): replace all three before deploy — these are placeholders,
-// not real links. This is the exact mistake the old Netlify site shipped with.
 export const SOCIAL_LINKS = [
-  { label: 'GitHub', href: 'https://github.com/your-github-username' },
-  { label: 'LinkedIn', href: 'https://linkedin.com/in/your-linkedin-username' },
-  { label: 'Email', href: 'mailto:you@example.com' },
+  { label: 'GitHub', href: 'https://github.com/CarlosQuerales' },
+  { label: 'Email', href: 'mailto:camelsouth@gmail.com' },
 ];
