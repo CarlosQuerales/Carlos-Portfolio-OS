@@ -1,5 +1,5 @@
 import { Section } from '@/components/ui/Section';
-import { ContactForm } from '@/components/sections/ContactForm';
+import { Button } from '@/components/ui/Button';
 import { buildMetadata } from '@/lib/seo';
 
 export const metadata = buildMetadata({
@@ -17,8 +17,8 @@ export default function ContactPage() {
         Solutions Engineer roles.
       </p>
 
-      <div className="mt-10 max-w-lg">
-        <ContactForm />
+      <div className="mt-8">
+        <Button href="mailto:camelsouth@gmail.com">Email Carlos</Button>
       </div>
     </Section>
   );
