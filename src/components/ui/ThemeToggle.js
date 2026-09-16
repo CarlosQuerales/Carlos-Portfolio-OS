@@ -10,7 +10,7 @@ export function ThemeToggle() {
       type="button"
       onClick={toggleTheme}
       aria-label="Toggle color theme"
-      className="border-border text-fg-muted hover:border-accent hover:text-accent focus-visible:outline-accent inline-flex h-9 w-9 items-center justify-center rounded-md border transition-colors focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
+      className="border-border bg-surface/60 text-fg-muted hover:border-border-strong hover:bg-surface-raised hover:text-accent inline-flex h-10 w-10 items-center justify-center rounded-[var(--radius-control)] border transition-[background-color,border-color,color,transform] duration-[var(--duration-fast)] hover:-translate-y-0.5"
     >
       <svg
         viewBox="0 0 24 24"

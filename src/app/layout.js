@@ -19,10 +19,16 @@ const body = IBM_Plex_Sans({
   display: 'swap',
 });
 
-export const metadata = buildMetadata({
-  title: SITE_NAME,
-  description: SITE_TAGLINE,
-});
+export const metadata = {
+  ...buildMetadata({
+    title: SITE_NAME,
+    description: SITE_TAGLINE,
+  }),
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon.svg',
+  },
+};
 
 export default function RootLayout({ children }) {
   return (

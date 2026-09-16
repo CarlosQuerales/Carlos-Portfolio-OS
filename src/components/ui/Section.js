@@ -12,7 +12,7 @@ import { Container } from '@/components/ui/Container';
  */
 export function Section({ children, className = '', as: Tag = 'section', id }) {
   return (
-    <Tag id={id} className={`py-16 sm:py-24 ${className}`}>
+    <Tag id={id} className={`py-[var(--space-section)] ${className}`}>
       <Container>{children}</Container>
     </Tag>
   );

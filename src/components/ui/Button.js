@@ -2,9 +2,9 @@ import Link from 'next/link';
 
 const VARIANT_CLASSES = {
   primary:
-    'bg-accent text-accent-contrast shadow-[0_10px_28px_-14px_var(--accent)] hover:bg-accent-hover hover:-translate-y-0.5',
+    'bg-[image:var(--gradient-brand)] text-white shadow-[0_14px_34px_-18px_var(--accent)] hover:brightness-110 hover:-translate-y-0.5 hover:shadow-[0_18px_42px_-18px_var(--accent)]',
   ghost:
-    'border border-border bg-surface/70 text-fg hover:border-accent hover:text-accent hover:-translate-y-0.5',
+    'border border-border bg-surface/70 text-fg shadow-[var(--shadow-card)] hover:border-border-strong hover:bg-surface-raised hover:text-accent hover:-translate-y-0.5',
 };
 
 /**
@@ -17,7 +17,7 @@ const VARIANT_CLASSES = {
  * }} props
  */
 export function Button({ children, href, variant = 'primary', className = '', ...rest }) {
-  const classes = `inline-flex min-h-11 items-center justify-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold transition-[background-color,border-color,color,transform] duration-200 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${VARIANT_CLASSES[variant]} ${className}`;
+  const classes = `inline-flex min-h-11 items-center justify-center gap-2 rounded-[var(--radius-pill)] px-5 py-2.5 text-sm font-semibold tracking-[-0.01em] transition-[background-color,border-color,color,filter,transform,box-shadow] duration-[var(--duration-standard)] disabled:pointer-events-none disabled:opacity-55 ${VARIANT_CLASSES[variant]} ${className}`;
 
   if (href) {
     return (

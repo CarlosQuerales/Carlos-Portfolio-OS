@@ -5,6 +5,10 @@
  */
 export function Container({ children, className = '' }) {
   return (
-    <div className={`mx-auto w-full max-w-6xl px-5 sm:px-8 ${className}`}>{children}</div>
+    <div
+      className={`mx-auto w-full max-w-[var(--content-width)] px-[var(--space-gutter)] ${className}`}
+    >
+      {children}
+    </div>
   );
 }
