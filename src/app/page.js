@@ -16,33 +16,54 @@ export default function HomePage() {
         <Hero profile={profile} />
       </Section>
 
-      <Section className="border-border border-t">
-        <div className="mb-8 flex items-end justify-between">
-          <h2 className="font-display text-fg text-2xl font-semibold">
-            Featured projects
+      <Section id="selected-work" className="border-border border-t py-14 sm:py-20">
+        <div className="mb-9 max-w-2xl">
+          <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
+            Selected work
+          </p>
+          <h2 className="font-display text-fg mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
+            Technical work explained through decisions and outcomes.
           </h2>
-          <Button href="/projects" variant="ghost">
-            View all
-          </Button>
+          <p className="text-fg-muted mt-4 text-base leading-relaxed">
+            A focused view of how I build, investigate, and communicate — with claims kept
+            public, specific, and verifiable.
+          </p>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+
+        <div className="grid gap-6 lg:grid-cols-2">
           {featuredProjects.map((project) => (
             <ProjectCard key={project.slug} project={project} />
           ))}
-        </div>
-      </Section>
-
-      <Section className="border-border border-t">
-        <div className="mb-8 flex items-end justify-between">
-          <h2 className="font-display text-fg text-2xl font-semibold">Case studies</h2>
-          <Button href="/case-studies" variant="ghost">
-            View all
-          </Button>
-        </div>
-        <div className="grid gap-6 sm:grid-cols-2">
           {featuredCaseStudies.map((caseStudy) => (
             <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
           ))}
+        </div>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <Button href="/projects" variant="ghost">
+            All projects
+          </Button>
+          <Button href="/case-studies" variant="ghost">
+            All case studies
+          </Button>
+        </div>
+      </Section>
+
+      <Section className="border-border border-t py-14 sm:py-20">
+        <div className="bg-surface border-border grid gap-8 rounded-2xl border p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div>
+            <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
+              Let&apos;s work together
+            </p>
+            <h2 className="font-display text-fg mt-3 text-2xl font-semibold tracking-tight sm:text-3xl">
+              Need someone who can connect the product, the issue, and the customer?
+            </h2>
+            <p className="text-fg-muted mt-3 max-w-2xl leading-relaxed">
+              I&apos;m open to remote front-end, customer success engineering, and
+              technical solutions roles.
+            </p>
+          </div>
+          <Button href="mailto:camelsouth@gmail.com">Start a conversation</Button>
         </div>
       </Section>
     </>

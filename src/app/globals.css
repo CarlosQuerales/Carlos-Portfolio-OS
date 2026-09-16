@@ -7,6 +7,7 @@
  * warm ink (not pure black) paired with a muted teal, not a saturated
  * neon accent.
  */
+:root,
 :root[data-theme='dark'] {
   --bg: #0f1115;
   --surface: #171a20;
@@ -27,6 +28,19 @@
   --accent: #1f7d75;
   --accent-hover: #196a63;
   --accent-contrast: #f7f6f3;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #f7f6f3;
+    --surface: #ffffff;
+    --fg: #14171a;
+    --fg-muted: #5b6169;
+    --border: #e3e1db;
+    --accent: #1f7d75;
+    --accent-hover: #196a63;
+    --accent-contrast: #f7f6f3;
+  }
 }
 
 @theme inline {
@@ -52,8 +66,19 @@ html[data-theme='light'] {
 
 body {
   background-color: var(--color-bg);
+  background-image: radial-gradient(
+    circle at 85% 8%,
+    color-mix(in srgb, var(--color-accent) 9%, transparent),
+    transparent 28rem
+  );
+  background-attachment: fixed;
   color: var(--color-fg);
   font-family: var(--font-sans);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
 }
 
 /* Respect reduced-motion preferences site-wide. */

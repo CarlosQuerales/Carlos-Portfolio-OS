@@ -14,33 +14,32 @@ import { SITE_NAME, SITE_URL } from '@/lib/constants';
  * @param {PageSeoInput} input
  * @returns {import('next').Metadata}
  */
-export function buildMetadata({
-  title,
-  description,
-  path = '',
-  image = '/og-default.png',
-}) {
+export function buildMetadata({ title, description, path = '', image }) {
   const url = `${SITE_URL}${path}`;
   const fullTitle = title === SITE_NAME ? title : `${title} — ${SITE_NAME}`;
+
+  const openGraph = {
+    title: fullTitle,
+    description,
+    url,
+    siteName: SITE_NAME,
+    type: 'website',
+    ...(image ? { images: [{ url: image }] } : {}),
+  };
+
+  const twitter = {
+    card: image ? 'summary_large_image' : 'summary',
+    title: fullTitle,
+    description,
+    ...(image ? { images: [image] } : {}),
+  };
 
   return {
     metadataBase: new URL(SITE_URL),
     title: fullTitle,
     description,
     alternates: { canonical: url },
-    openGraph: {
-      title: fullTitle,
-      description,
-      url,
-      siteName: SITE_NAME,
-      images: [{ url: image }],
-      type: 'website',
-    },
-    twitter: {
-      card: 'summary_large_image',
-      title: fullTitle,
-      description,
-      images: [image],
-    },
+    openGraph,
+    twitter,
   };
 }

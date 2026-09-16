@@ -3,6 +3,7 @@
  * @property {string} slug
  * @property {string} title
  * @property {string} summary
+ * @property {string} focus
  * @property {string} problem
  * @property {string} approach
  * @property {string} result
@@ -16,6 +17,7 @@ export const caseStudies = [
     title: 'WordPress Performance Optimization',
     summary:
       'A practical workflow for diagnosing WordPress performance issues without relying on unverified claims.',
+    focus: 'Diagnosis · Prioritization · Clear communication',
     problem:
       'WordPress performance problems rarely come from one source. Themes, plugins, media, third-party scripts, caching, and hosting can all affect the visitor experience, so changing components without a baseline can create risk without proving improvement.',
     approach:

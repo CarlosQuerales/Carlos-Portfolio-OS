@@ -13,19 +13,33 @@ const STATUS_LABEL = {
  */
 export function ProjectCard({ project }) {
   return (
-    <Card className="flex flex-col gap-4">
+    <Card className="group flex h-full flex-col gap-5 rounded-2xl p-6 sm:p-8">
       <div className="flex items-start justify-between gap-3">
-        <h3 className="font-display text-fg text-lg font-semibold">
-          <Link href={`/projects/${project.slug}`} className="hover:text-accent">
-            {project.title}
-          </Link>
-        </h3>
+        <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
+          Production project
+        </p>
         <Badge tone={project.status === 'shipped' ? 'accent' : 'muted'}>
           {STATUS_LABEL[project.status]}
         </Badge>
       </div>
 
-      <p className="text-fg-muted text-sm leading-relaxed">{project.summary}</p>
+      <div>
+        <h3 className="font-display text-fg text-2xl font-semibold tracking-tight">
+          <Link href={`/projects/${project.slug}`} className="hover:text-accent">
+            {project.title}
+          </Link>
+        </h3>
+        <p className="text-fg-muted mt-2 text-sm leading-relaxed">{project.role}</p>
+      </div>
+
+      <p className="text-fg text-base leading-relaxed">{project.summary}</p>
+
+      <div className="border-border border-t pt-4">
+        <p className="text-fg-muted text-xs font-semibold tracking-wide uppercase">
+          Outcome
+        </p>
+        <p className="text-fg-muted mt-2 text-sm leading-relaxed">{project.outcome}</p>
+      </div>
 
       <div className="flex flex-wrap gap-2">
         {project.technologies.map((tech) => (
@@ -35,9 +49,15 @@ export function ProjectCard({ project }) {
 
       <Link
         href={`/projects/${project.slug}`}
-        className="text-accent mt-auto text-sm font-medium hover:underline"
+        className="text-accent mt-auto inline-flex items-center gap-2 text-sm font-semibold"
       >
-        View details →
+        View project{' '}
+        <span
+          aria-hidden="true"
+          className="transition-transform group-hover:translate-x-1"
+        >
+          →
+        </span>
       </Link>
     </Card>
   );

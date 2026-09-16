@@ -56,6 +56,27 @@ export default async function ProjectDetailPage({ params }) {
         {project.description}
       </p>
 
+      <dl className="border-border bg-border mt-10 grid gap-px overflow-hidden rounded-xl border sm:grid-cols-3">
+        <div className="bg-bg p-5">
+          <dt className="text-fg-muted text-xs font-semibold tracking-wide uppercase">
+            Role
+          </dt>
+          <dd className="text-fg mt-2 text-sm leading-relaxed">{project.role}</dd>
+        </div>
+        <div className="bg-bg p-5">
+          <dt className="text-fg-muted text-xs font-semibold tracking-wide uppercase">
+            Challenge
+          </dt>
+          <dd className="text-fg mt-2 text-sm leading-relaxed">{project.challenge}</dd>
+        </div>
+        <div className="bg-bg p-5">
+          <dt className="text-fg-muted text-xs font-semibold tracking-wide uppercase">
+            Outcome
+          </dt>
+          <dd className="text-fg mt-2 text-sm leading-relaxed">{project.outcome}</dd>
+        </div>
+      </dl>
+
       <div className="mt-6 flex flex-wrap gap-2">
         {project.technologies.map((tech) => (
           <Badge key={tech}>{tech}</Badge>

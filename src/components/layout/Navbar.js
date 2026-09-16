@@ -5,10 +5,15 @@ import { ThemeToggle } from '@/components/ui/ThemeToggle';
 
 export function Navbar() {
   return (
-    <header className="border-border border-b">
+    <header className="border-border bg-bg/90 sticky top-0 z-40 border-b backdrop-blur-md">
       <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="font-display text-fg text-base font-semibold">
-          {SITE_NAME}
+        <Link href="/" className="group flex items-center gap-3">
+          <span className="bg-accent text-accent-contrast font-display inline-flex h-8 w-8 items-center justify-center rounded-full text-xs font-bold">
+            CQ
+          </span>
+          <span className="font-display text-fg group-hover:text-accent text-base font-semibold transition-colors">
+            {SITE_NAME}
+          </span>
         </Link>
 
         <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
@@ -16,7 +21,7 @@ export function Navbar() {
             <Link
               key={item.href}
               href={item.href}
-              className="text-fg-muted hover:text-accent rounded-md px-3 py-2 text-sm transition-colors"
+              className="text-fg-muted hover:bg-surface hover:text-fg rounded-md px-3 py-2 text-sm font-medium transition-colors"
             >
               {item.label}
             </Link>
