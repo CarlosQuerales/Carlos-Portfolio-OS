@@ -7,13 +7,13 @@ import { Badge } from '@/components/ui/Badge';
  */
 export function CaseStudyCard({ caseStudy }) {
   return (
-    <Card className="group flex h-full flex-col gap-5 rounded-2xl p-6 sm:p-8">
+    <Card className="group flex h-full flex-col gap-5 overflow-hidden rounded-3xl p-6 sm:p-8">
       <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
         Technical case study
       </p>
 
       <div>
-        <h3 className="font-display text-fg text-2xl font-semibold tracking-tight">
+        <h3 className="font-display text-fg text-2xl font-semibold tracking-[-0.025em]">
           <Link href={`/case-studies/${caseStudy.slug}`} className="hover:text-accent">
             {caseStudy.title}
           </Link>

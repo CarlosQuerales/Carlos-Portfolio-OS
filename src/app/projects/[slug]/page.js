@@ -39,12 +39,15 @@ export default async function ProjectDetailPage({ params }) {
 
   return (
     <Section className="pt-16">
-      <Link href="/projects" className="text-fg-muted hover:text-accent text-sm">
+      <Link
+        href="/projects"
+        className="border-border text-fg-muted hover:border-accent hover:text-accent inline-flex rounded-full border px-4 py-2 text-sm font-medium transition-colors"
+      >
         ← All projects
       </Link>
 
-      <div className="mt-6 flex flex-wrap items-center gap-3">
-        <h1 className="font-display text-fg text-3xl font-semibold sm:text-4xl">
+      <div className="mt-8 flex flex-wrap items-center gap-4">
+        <h1 className="font-display text-fg text-4xl font-semibold tracking-[-0.035em] sm:text-5xl">
           {project.title}
         </h1>
         <Badge tone={project.status === 'shipped' ? 'accent' : 'muted'}>
@@ -52,24 +55,24 @@ export default async function ProjectDetailPage({ params }) {
         </Badge>
       </div>
 
-      <p className="text-fg-muted mt-6 max-w-2xl text-lg leading-relaxed">
+      <p className="text-fg-muted mt-6 max-w-3xl text-lg leading-relaxed">
         {project.description}
       </p>
 
-      <dl className="border-border bg-border mt-10 grid gap-px overflow-hidden rounded-xl border sm:grid-cols-3">
-        <div className="bg-bg p-5">
+      <dl className="border-border bg-border mt-10 grid gap-px overflow-hidden rounded-2xl border shadow-[0_18px_60px_-42px_rgba(5,26,32,0.55)] sm:grid-cols-3">
+        <div className="bg-surface p-6">
           <dt className="text-fg-muted text-xs font-semibold tracking-wide uppercase">
             Role
           </dt>
           <dd className="text-fg mt-2 text-sm leading-relaxed">{project.role}</dd>
         </div>
-        <div className="bg-bg p-5">
+        <div className="bg-surface p-6">
           <dt className="text-fg-muted text-xs font-semibold tracking-wide uppercase">
             Challenge
           </dt>
           <dd className="text-fg mt-2 text-sm leading-relaxed">{project.challenge}</dd>
         </div>
-        <div className="bg-bg p-5">
+        <div className="bg-surface p-6">
           <dt className="text-fg-muted text-xs font-semibold tracking-wide uppercase">
             Outcome
           </dt>

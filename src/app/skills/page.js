@@ -1,5 +1,6 @@
 import { Section } from '@/components/ui/Section';
 import { SkillCard } from '@/components/sections/SkillCard';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { buildMetadata } from '@/lib/seo';
 import { getSkillGroups } from '@/services/content';
 
@@ -14,15 +15,15 @@ export default function SkillsPage() {
 
   return (
     <Section className="pt-16">
-      <h1 className="font-display text-fg text-3xl font-semibold sm:text-4xl">Skills</h1>
-      <p className="text-fg-muted mt-4 max-w-2xl text-lg leading-relaxed">
-        Grouped by category rather than a flat list — the categories themselves are part
-        of the story.
-      </p>
+      <PageHeader
+        eyebrow="Capabilities"
+        title="Skills"
+        description="Technical and cross-functional capabilities grouped by the kind of work they support."
+      />
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
-        {skillGroups.map((group) => (
-          <SkillCard key={group.category} group={group} />
+        {skillGroups.map((group, index) => (
+          <SkillCard key={group.category} group={group} index={index} />
         ))}
       </div>
     </Section>

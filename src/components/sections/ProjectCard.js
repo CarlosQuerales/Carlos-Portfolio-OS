@@ -13,7 +13,7 @@ const STATUS_LABEL = {
  */
 export function ProjectCard({ project }) {
   return (
-    <Card className="group flex h-full flex-col gap-5 rounded-2xl p-6 sm:p-8">
+    <Card className="group flex h-full flex-col gap-5 overflow-hidden rounded-3xl p-6 sm:p-8">
       <div className="flex items-start justify-between gap-3">
         <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
           Production project
@@ -24,7 +24,7 @@ export function ProjectCard({ project }) {
       </div>
 
       <div>
-        <h3 className="font-display text-fg text-2xl font-semibold tracking-tight">
+        <h3 className="font-display text-fg text-2xl font-semibold tracking-[-0.025em]">
           <Link href={`/projects/${project.slug}`} className="hover:text-accent">
             {project.title}
           </Link>

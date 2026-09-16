@@ -1,5 +1,6 @@
 import { Section } from '@/components/ui/Section';
 import { Timeline } from '@/components/sections/Timeline';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { buildMetadata } from '@/lib/seo';
 import { getExperience } from '@/services/content';
 
@@ -14,14 +15,11 @@ export default function ExperiencePage() {
 
   return (
     <Section className="pt-16">
-      <h1 className="font-display text-fg text-3xl font-semibold sm:text-4xl">
-        Experience
-      </h1>
-      <p className="text-fg-muted mt-4 max-w-2xl text-lg leading-relaxed">
-        More than a decade of experience connecting customer needs, technical
-        investigation, and web delivery. This overview focuses on the work I can discuss
-        publicly without exposing confidential client or employer information.
-      </p>
+      <PageHeader
+        eyebrow="Career focus"
+        title="Experience"
+        description="More than a decade connecting customer needs, technical investigation, and web delivery — presented without exposing confidential client or employer information."
+      />
 
       <div className="mt-12">
         <Timeline entries={entries} />

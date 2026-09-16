@@ -12,11 +12,14 @@ export default function HomePage() {
 
   return (
     <>
-      <Section className="pt-20 sm:pt-28">
+      <Section className="pt-16 sm:pt-24">
         <Hero profile={profile} />
       </Section>
 
-      <Section id="selected-work" className="border-border border-t py-14 sm:py-20">
+      <Section
+        id="selected-work"
+        className="border-border bg-surface/35 border-y py-14 sm:py-20"
+      >
         <div className="mb-9 max-w-2xl">
           <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
             Selected work
@@ -50,8 +53,9 @@ export default function HomePage() {
       </Section>
 
       <Section className="border-border border-t py-14 sm:py-20">
-        <div className="bg-surface border-border grid gap-8 rounded-2xl border p-7 sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
-          <div>
+        <div className="bg-surface border-border relative grid gap-8 overflow-hidden rounded-3xl border p-7 shadow-[0_24px_80px_-48px_rgba(5,26,32,0.7)] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">
+          <div className="bg-accent/10 absolute -right-20 -bottom-28 h-64 w-64 rounded-full blur-3xl" />
+          <div className="relative">
             <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
               Let&apos;s work together
             </p>
@@ -63,7 +67,9 @@ export default function HomePage() {
               technical solutions roles.
             </p>
           </div>
-          <Button href="mailto:camelsouth@gmail.com">Start a conversation</Button>
+          <Button href="mailto:camelsouth@gmail.com" className="relative">
+            Start a conversation
+          </Button>
         </div>
       </Section>
     </>

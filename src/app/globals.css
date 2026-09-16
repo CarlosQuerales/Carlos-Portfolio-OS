@@ -9,48 +9,56 @@
  */
 :root,
 :root[data-theme='dark'] {
-  --bg: #0f1115;
-  --surface: #171a20;
-  --fg: #f2f1ed;
-  --fg-muted: #9ba0aa;
-  --border: #262b33;
-  --accent: #2aa198;
-  --accent-hover: #35b8ae;
-  --accent-contrast: #0f1115;
+  --bg: #091015;
+  --surface: #111b22;
+  --surface-raised: #17242d;
+  --fg: #f5f8f8;
+  --fg-muted: #98a8b2;
+  --border: #263740;
+  --accent: #45d3c5;
+  --accent-hover: #6be1d6;
+  --accent-soft: #163b3a;
+  --accent-contrast: #07110f;
 }
 
 :root[data-theme='light'] {
-  --bg: #f7f6f3;
+  --bg: #f3f7f7;
   --surface: #ffffff;
-  --fg: #14171a;
-  --fg-muted: #5b6169;
-  --border: #e3e1db;
-  --accent: #1f7d75;
-  --accent-hover: #196a63;
-  --accent-contrast: #f7f6f3;
+  --surface-raised: #eaf1f1;
+  --fg: #0b151b;
+  --fg-muted: #52616b;
+  --border: #d8e2e4;
+  --accent: #087f76;
+  --accent-hover: #056b64;
+  --accent-soft: #dcefee;
+  --accent-contrast: #ffffff;
 }
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
-    --bg: #f7f6f3;
+    --bg: #f3f7f7;
     --surface: #ffffff;
-    --fg: #14171a;
-    --fg-muted: #5b6169;
-    --border: #e3e1db;
-    --accent: #1f7d75;
-    --accent-hover: #196a63;
-    --accent-contrast: #f7f6f3;
+    --surface-raised: #eaf1f1;
+    --fg: #0b151b;
+    --fg-muted: #52616b;
+    --border: #d8e2e4;
+    --accent: #087f76;
+    --accent-hover: #056b64;
+    --accent-soft: #dcefee;
+    --accent-contrast: #ffffff;
   }
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-border: var(--border);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
   --color-accent-contrast: var(--accent-contrast);
 
   --font-sans: var(--font-body);
@@ -66,14 +74,30 @@ html[data-theme='light'] {
 
 body {
   background-color: var(--color-bg);
-  background-image: radial-gradient(
-    circle at 85% 8%,
-    color-mix(in srgb, var(--color-accent) 9%, transparent),
-    transparent 28rem
-  );
+  background-image:
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--color-border) 28%, transparent) 1px,
+      transparent 1px
+    ),
+    radial-gradient(
+      circle at 85% 8%,
+      color-mix(in srgb, var(--color-accent) 10%, transparent),
+      transparent 32rem
+    );
+  background-size:
+    min(100%, 80rem) 100%,
+    auto;
+  background-position: center top;
   background-attachment: fixed;
   color: var(--color-fg);
   font-family: var(--font-sans);
+}
+
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
 }
 
 ::selection {
