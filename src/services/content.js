@@ -16,6 +16,7 @@ import { skillGroups } from '@/data/skills';
 import { experience } from '@/data/experience';
 import { projects } from '@/data/projects';
 import { caseStudies } from '@/data/case-studies';
+import { customerSuccess } from '@/data/customer-success';
 
 export function getProfile() {
   return profile;
@@ -27,6 +28,10 @@ export function getSkillGroups() {
 
 export function getExperience() {
   return experience;
+}
+
+export function getCustomerSuccess() {
+  return customerSuccess;
 }
 
 export function getProjects() {

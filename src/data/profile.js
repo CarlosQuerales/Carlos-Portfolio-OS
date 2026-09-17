@@ -8,28 +8,24 @@
  * @property {string} heroStatementAccent
  * @property {string} summary
  * @property {string[]} focusAreas
- * @property {{ value: string, label: string }[]} proofPoints
+ * @property {string} resumePath
  */
 
 /** @type {Profile} */
 export const profile = {
   name: 'Carlos Querales',
-  role: 'Front-End Developer & Customer Success Engineer',
+  role: 'Customer Success Engineer | Technical Support',
   location: 'Venezuela · Open to remote work',
   availability: 'Open to remote opportunities',
-  heroStatementLead: 'I turn complex web issues into',
-  heroStatementAccent: 'clear products and customer outcomes.',
+  heroStatementLead: 'I turn complex technical issues into',
+  heroStatementAccent: 'clear customer outcomes.',
   summary:
-    'Front-end developer and customer success engineer with 10+ years across technical support, web delivery, and WordPress. I bridge customers and engineering by investigating issues, shaping clear next steps, and building maintainable interfaces.',
+    'Customer Success Engineer with 10+ years across technical support, IT service delivery, and web platforms. I bridge customers and engineering by diagnosing issues, coordinating the right teams, and turning technical complexity into confident next steps.',
   focusAreas: [
-    'Front-End Development (React, JavaScript)',
     'Customer Success Engineering',
-    'Technical Solutions & Integrations',
-    'WordPress & PHP',
+    'Technical Support & Incident Management',
+    'Service Delivery & Team Leadership',
+    'Web Platforms, APIs & Integrations',
   ],
-  proofPoints: [
-    { value: '10+', label: 'Years in customer-facing technical work' },
-    { value: 'React · Next.js', label: 'Modern front-end delivery' },
-    { value: 'WordPress · APIs', label: 'Web platforms and integrations' },
-  ],
+  resumePath: '/documents/carlos-querales-customer-success-resume.pdf',
 };

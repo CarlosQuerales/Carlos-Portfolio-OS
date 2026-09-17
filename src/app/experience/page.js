@@ -6,7 +6,7 @@ import { getExperience } from '@/services/content';
 
 export const metadata = buildMetadata({
   title: 'Experience',
-  description: 'Technical experience across customer success and web development.',
+  description: 'Customer success, technical support, and service delivery experience.',
   path: '/experience',
 });
 
@@ -16,9 +16,9 @@ export default function ExperiencePage() {
   return (
     <Section className="pt-16">
       <PageHeader
-        eyebrow="Career focus"
-        title="Experience"
-        description="More than a decade connecting customer needs, technical investigation, and web delivery — presented without exposing confidential client or employer information."
+        eyebrow="Selected experience"
+        title="A career built around customer clarity and technical ownership."
+        description="More than a decade leading support, investigating complex systems, and helping customers and internal teams reach the right next step."
       />
 
       <div className="mt-12">

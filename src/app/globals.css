@@ -115,6 +115,7 @@
 
 html {
   color-scheme: dark;
+  scroll-padding-top: 6rem;
 }
 html[data-theme='light'] {
   color-scheme: light;

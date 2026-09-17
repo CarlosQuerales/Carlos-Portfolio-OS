@@ -7,7 +7,7 @@
 export const SITE_NAME = 'Carlos Querales';
 
 export const SITE_TAGLINE =
-  'Front-End Developer and Customer Success Engineer turning complex web issues into clear products and customer outcomes.';
+  'Customer Success Engineer and Technical Support professional turning complex technical issues into clear customer outcomes.';
 
 export const SITE_URL = 'https://carlosmqueralesporfolio.netlify.app';
 
@@ -17,7 +17,7 @@ export const SITE_URL = 'https://carlosmqueralesporfolio.netlify.app';
  * a nav link to nothing is worse than no nav link.
  */
 export const NAV_ITEMS = [
-  { label: 'Work', href: '/projects' },
+  { label: 'Technical Work', href: '/projects' },
   { label: 'Experience', href: '/experience' },
   { label: 'About', href: '/about' },
   { label: 'Contact', href: '/contact' },

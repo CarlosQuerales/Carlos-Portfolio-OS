@@ -15,7 +15,7 @@ export default function ContactPage() {
       <PageHeader
         eyebrow="Start a conversation"
         title="Let's connect"
-        description="I'm open to remote Front-End Developer, Customer Success Engineer, and Technical Solutions Engineer roles. If you're hiring for work that connects customers, product, and engineering, let's talk."
+        description="I'm open to remote Customer Success Engineer, Technical Support, and IT Service Delivery roles. If you're hiring for work that connects customers, product, and engineering, let's talk."
       />
 
       <div className="border-border bg-surface mt-10 flex flex-col items-start gap-5 rounded-2xl border p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">

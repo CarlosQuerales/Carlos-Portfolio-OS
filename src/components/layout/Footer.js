@@ -14,8 +14,8 @@ export function Footer() {
             <p className="font-display text-fg text-lg font-semibold">{SITE_NAME}</p>
           </div>
           <p className="text-fg-muted mt-2 max-w-md text-sm leading-relaxed">
-            Front-end development and customer success engineering, connected by clear
-            technical communication.
+            Customer success and technical support, connected by clear investigation,
+            communication, and ownership.
           </p>
           <p className="text-fg-muted mt-5 text-xs">
             © {year} {SITE_NAME}

@@ -1,14 +1,25 @@
 import { Hero } from '@/components/sections/Hero';
 import { ProjectCard } from '@/components/sections/ProjectCard';
 import { CaseStudyCard } from '@/components/sections/CaseStudyCard';
+import { CustomerImpact } from '@/components/sections/CustomerImpact';
+import { SupportApproach } from '@/components/sections/SupportApproach';
+import { TechnicalCustomerSuccess } from '@/components/sections/TechnicalCustomerSuccess';
+import { ServiceDeliveryLeadership } from '@/components/sections/ServiceDeliveryLeadership';
+import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
-import { getProfile, getProjects, getCaseStudies } from '@/services/content';
+import {
+  getProfile,
+  getProjects,
+  getCaseStudies,
+  getCustomerSuccess,
+} from '@/services/content';
 
 export default function HomePage() {
   const profile = getProfile();
   const featuredProjects = getProjects().slice(0, 3);
   const featuredCaseStudies = getCaseStudies().slice(0, 2);
+  const customerSuccess = getCustomerSuccess();
 
   return (
     <>
@@ -16,21 +27,21 @@ export default function HomePage() {
         <Hero profile={profile} />
       </Section>
 
+      <CustomerImpact impact={customerSuccess.impact} />
+      <SupportApproach steps={customerSuccess.supportSteps} />
+      <TechnicalCustomerSuccess capabilities={customerSuccess.technicalCapabilities} />
+      <ServiceDeliveryLeadership highlights={customerSuccess.serviceDelivery} />
+
       <Section
         id="selected-work"
         className="border-border bg-surface/35 border-y py-14 sm:py-20"
       >
-        <div className="mb-9 max-w-2xl">
-          <p className="text-accent text-xs font-semibold tracking-[0.14em] uppercase">
-            Selected work
-          </p>
-          <h2 className="font-display text-fg mt-3 text-3xl font-semibold tracking-tight sm:text-4xl">
-            Technical work explained through decisions and outcomes.
-          </h2>
-          <p className="text-fg-muted mt-4 text-base leading-relaxed">
-            A focused view of how I build, investigate, and communicate — with claims kept
-            public, specific, and verifiable.
-          </p>
+        <div className="mb-9">
+          <SectionHeading
+            eyebrow="Selected technical work"
+            title="Supporting evidence: how I investigate, build, and explain."
+            description="Projects and case studies that demonstrate the technical judgment behind my customer-facing work."
+          />
         </div>
 
         <div className="grid gap-6 lg:grid-cols-2">
@@ -63,8 +74,8 @@ export default function HomePage() {
               Need someone who can connect the product, the issue, and the customer?
             </h2>
             <p className="text-fg-muted mt-3 max-w-2xl leading-relaxed">
-              I&apos;m open to remote front-end, customer success engineering, and
-              technical solutions roles.
+              I&apos;m open to remote Customer Success Engineering, Technical Support, and
+              IT Service Delivery roles.
             </p>
           </div>
           <Button href="mailto:camelsouth@gmail.com" className="relative">

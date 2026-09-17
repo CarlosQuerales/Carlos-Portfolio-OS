@@ -6,7 +6,7 @@ import { getSkillGroups } from '@/services/content';
 
 export const metadata = buildMetadata({
   title: 'Skills',
-  description: 'Technical and cross-functional skills, grouped by category.',
+  description: 'Customer success, service delivery, and technical support capabilities.',
   path: '/skills',
 });
 
@@ -18,7 +18,7 @@ export default function SkillsPage() {
       <PageHeader
         eyebrow="Capabilities"
         title="Skills"
-        description="Technical and cross-functional capabilities grouped by the kind of work they support."
+        description="Customer-facing, technical, and leadership capabilities grouped by the outcomes they support."
       />
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">

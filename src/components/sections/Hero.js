@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { Button } from '@/components/ui/Button';
 import { Badge } from '@/components/ui/Badge';
 
@@ -6,7 +7,7 @@ import { Badge } from '@/components/ui/Badge';
  */
 export function Hero({ profile }) {
   return (
-    <div className="grid gap-10 md:grid-cols-[minmax(0,1.25fr)_minmax(16rem,0.75fr)] md:items-end md:gap-8 lg:gap-14">
+    <div className="grid gap-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(20rem,0.75fr)] lg:items-center lg:gap-16">
       <div className="flex flex-col items-start gap-6">
         <div className="flex flex-wrap items-center gap-3">
           <Badge tone="accent">{profile.availability}</Badge>
@@ -27,48 +28,43 @@ export function Hero({ profile }) {
         </p>
 
         <div className="flex flex-wrap gap-3 pt-1">
-          <Button href="/projects">Explore selected work</Button>
-          <Button href="mailto:camelsouth@gmail.com" variant="ghost">
-            Email Carlos
+          <Button href="#customer-impact">See customer impact</Button>
+          <Button href="/contact" variant="ghost">
+            Start a conversation
           </Button>
         </div>
+
+        <a
+          href={profile.resumePath}
+          download
+          className="text-fg-muted hover:text-accent decoration-border-strong text-sm font-medium underline underline-offset-4 transition-colors"
+        >
+          Download résumé (PDF)
+        </a>
       </div>
 
-      <aside className="border-border bg-surface relative overflow-hidden rounded-3xl border p-6 shadow-[0_28px_80px_-46px_rgba(5,26,32,0.65)] sm:p-7">
-        <div className="bg-accent absolute top-0 left-0 h-1 w-24" />
-        <div className="bg-accent/10 absolute -top-16 -right-16 h-40 w-40 rounded-full blur-2xl" />
-        <p className="text-accent relative text-xs font-semibold tracking-[0.14em] uppercase">
-          At the intersection
-        </p>
-        <p className="font-display text-fg relative mt-4 text-2xl font-semibold tracking-tight">
-          Engineering <span className="text-accent">↔</span> Customer
-        </p>
-        <p className="text-fg-muted relative mt-2 text-sm leading-relaxed">
-          Technical depth translated into useful decisions and clear communication.
-        </p>
-        <ul className="mt-5 space-y-4">
-          {profile.focusAreas.slice(0, 3).map((area, index) => (
-            <li
-              key={area}
-              className="border-border flex gap-4 border-t pt-4 first:border-0 first:pt-0"
-            >
-              <span className="text-accent font-display text-sm font-semibold">
-                0{index + 1}
-              </span>
-              <span className="text-fg text-sm leading-relaxed font-medium">{area}</span>
-            </li>
-          ))}
-        </ul>
-      </aside>
-
-      <dl className="border-border bg-border grid gap-px overflow-hidden rounded-2xl border shadow-[0_18px_60px_-42px_rgba(5,26,32,0.55)] sm:grid-cols-3 md:col-span-2">
-        {profile.proofPoints.map((point) => (
-          <div key={point.label} className="bg-bg px-5 py-5 sm:px-6">
-            <dt className="font-display text-fg text-lg font-semibold">{point.value}</dt>
-            <dd className="text-fg-muted mt-1 text-sm leading-snug">{point.label}</dd>
-          </div>
-        ))}
-      </dl>
+      <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+        <div className="absolute -inset-3 rounded-[2rem] bg-[image:var(--gradient-brand)] opacity-30 blur-xl" />
+        <div className="border-border bg-surface relative overflow-hidden rounded-[2rem] border p-2 shadow-[var(--shadow-lift)]">
+          <Image
+            src="/images/carlos-querales-profile.jpg"
+            alt="Carlos Querales, Customer Success Engineer and Technical Support professional"
+            width={896}
+            height={1200}
+            sizes="(min-width: 1024px) 35vw, (min-width: 640px) 28rem, 90vw"
+            priority
+            className="aspect-[4/5] w-full rounded-[1.55rem] object-cover object-top"
+          />
+          <figcaption className="border-border bg-bg/90 absolute right-5 bottom-5 left-5 rounded-2xl border p-4 backdrop-blur-md">
+            <p className="font-display text-fg font-semibold">
+              Technical depth. Human clarity.
+            </p>
+            <p className="text-fg-muted mt-1 text-sm">
+              Bilingual customer support · English & Spanish
+            </p>
+          </figcaption>
+        </div>
+      </figure>
     </div>
   );
 }
