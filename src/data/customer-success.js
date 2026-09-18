@@ -5,25 +5,28 @@
 export const customerSuccess = {
   impact: [
     {
-      value: '10+',
-      label: 'Years in technical service',
-      detail: 'Supporting customers across SaaS, web platforms, and business systems.',
-    },
-    {
-      value: '7+',
+      value: 7,
+      suffix: '+',
       label: 'Global accounts supported',
-      detail: 'Ongoing technical partnership across distributed customer environments.',
+      detail: 'Technical partnership across distributed customer environments.',
     },
     {
-      value: '~100',
+      value: 100,
+      prefix: '~',
       label: 'Complex tickets per month',
-      detail:
-        'Investigated, prioritized, and coordinated with a two-person engineering team.',
+      detail: 'Investigated, prioritized, and coordinated with engineering.',
     },
     {
-      value: '70% / 90%',
-      label: 'First-contact / cumulative resolution',
-      detail: 'Clear triage and disciplined follow-through across the support lifecycle.',
+      value: 70,
+      suffix: '%',
+      label: 'First-contact resolution',
+      detail: 'Clear triage and actionable guidance from the first interaction.',
+    },
+    {
+      value: 90,
+      suffix: '%',
+      label: 'Cumulative resolution',
+      detail: 'Disciplined ownership and follow-through across the support lifecycle.',
     },
   ],
   supportSteps: [

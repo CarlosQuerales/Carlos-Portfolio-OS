@@ -23,7 +23,7 @@ export default function HomePage() {
 
   return (
     <>
-      <Section className="pt-16 sm:pt-24">
+      <Section className="py-0">
         <Hero profile={profile} />
       </Section>
 
