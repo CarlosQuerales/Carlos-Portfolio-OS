@@ -2,9 +2,9 @@ import { Hero } from '@/components/sections/Hero';
 import { ProjectCard } from '@/components/sections/ProjectCard';
 import { CaseStudyCard } from '@/components/sections/CaseStudyCard';
 import { CustomerImpact } from '@/components/sections/CustomerImpact';
+import { ExperienceStory } from '@/components/sections/ExperienceStory';
 import { SupportApproach } from '@/components/sections/SupportApproach';
 import { TechnicalCustomerSuccess } from '@/components/sections/TechnicalCustomerSuccess';
-import { ServiceDeliveryLeadership } from '@/components/sections/ServiceDeliveryLeadership';
 import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
@@ -13,6 +13,7 @@ import {
   getProjects,
   getCaseStudies,
   getCustomerSuccess,
+  getExperience,
 } from '@/services/content';
 
 export default function HomePage() {
@@ -20,6 +21,7 @@ export default function HomePage() {
   const featuredProjects = getProjects().slice(0, 3);
   const featuredCaseStudies = getCaseStudies().slice(0, 2);
   const customerSuccess = getCustomerSuccess();
+  const experience = getExperience();
 
   return (
     <>
@@ -28,9 +30,9 @@ export default function HomePage() {
       </Section>
 
       <CustomerImpact impact={customerSuccess.impact} />
+      <ExperienceStory entries={experience} compact />
       <SupportApproach steps={customerSuccess.supportSteps} />
-      <TechnicalCustomerSuccess capabilities={customerSuccess.technicalCapabilities} />
-      <ServiceDeliveryLeadership highlights={customerSuccess.serviceDelivery} />
+      <TechnicalCustomerSuccess bridge={customerSuccess.expertiseBridge} />
 
       <Section
         id="selected-work"

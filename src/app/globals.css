@@ -183,9 +183,8 @@ summary {
       animation-duration: 1ms;
       animation-fill-mode: both;
       animation-timing-function: ease-out;
-      animation-delay: var(--reveal-delay, 0ms);
       animation-timeline: view();
-      animation-range: entry 8% cover 30%;
+      animation-range: entry 0% entry 100%;
     }
   }
 }

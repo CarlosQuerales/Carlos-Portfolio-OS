@@ -40,7 +40,6 @@ export function CustomerImpact({ impact }) {
         {impact.map((item, index) => (
           <div
             key={item.label}
-            style={{ '--reveal-delay': `${index * 90}ms` }}
             className={`scroll-reveal border-border bg-bg/70 group relative flex min-h-52 flex-col overflow-hidden rounded-[var(--radius-card)] border p-6 shadow-[var(--shadow-card)] sm:p-8 ${LAYOUT_CLASSES[index]}`}
           >
             <div className="bg-accent/8 absolute -top-24 -right-24 h-64 w-64 rounded-full blur-3xl transition-transform duration-700 group-hover:scale-125" />
