@@ -1,11 +1,9 @@
 import { Hero } from '@/components/sections/Hero';
-import { ProjectCard } from '@/components/sections/ProjectCard';
-import { CaseStudyCard } from '@/components/sections/CaseStudyCard';
 import { CustomerImpact } from '@/components/sections/CustomerImpact';
 import { ExperienceStory } from '@/components/sections/ExperienceStory';
+import { SelectedWorkShowcase } from '@/components/sections/SelectedWorkShowcase';
 import { SupportApproach } from '@/components/sections/SupportApproach';
 import { TechnicalCustomerSuccess } from '@/components/sections/TechnicalCustomerSuccess';
-import { SectionHeading } from '@/components/ui/SectionHeading';
 import { Section } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import {
@@ -34,36 +32,10 @@ export default function HomePage() {
       <SupportApproach steps={customerSuccess.supportSteps} />
       <TechnicalCustomerSuccess bridge={customerSuccess.expertiseBridge} />
 
-      <Section
-        id="selected-work"
-        className="border-border bg-surface/35 border-y py-14 sm:py-20"
-      >
-        <div className="mb-9">
-          <SectionHeading
-            eyebrow="Selected technical work"
-            title="Supporting evidence: how I investigate, build, and explain."
-            description="Projects and case studies that demonstrate the technical judgment behind my customer-facing work."
-          />
-        </div>
-
-        <div className="grid gap-6 lg:grid-cols-2">
-          {featuredProjects.map((project) => (
-            <ProjectCard key={project.slug} project={project} />
-          ))}
-          {featuredCaseStudies.map((caseStudy) => (
-            <CaseStudyCard key={caseStudy.slug} caseStudy={caseStudy} />
-          ))}
-        </div>
-
-        <div className="mt-8 flex flex-wrap gap-3">
-          <Button href="/projects" variant="ghost">
-            All projects
-          </Button>
-          <Button href="/case-studies" variant="ghost">
-            All case studies
-          </Button>
-        </div>
-      </Section>
+      <SelectedWorkShowcase
+        projects={featuredProjects}
+        caseStudies={featuredCaseStudies}
+      />
 
       <Section className="border-border border-t py-14 sm:py-20">
         <div className="bg-surface border-border relative grid gap-8 overflow-hidden rounded-3xl border p-7 shadow-[0_24px_80px_-48px_rgba(5,26,32,0.7)] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">

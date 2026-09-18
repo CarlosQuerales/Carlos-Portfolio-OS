@@ -7,6 +7,8 @@
  * @property {string} role
  * @property {string} challenge
  * @property {string} outcome
+ * @property {string} approach
+ * @property {'portfolio'} visual
  * @property {('frontend'|'cse'|'solutions')[]} tags
  * @property {('shipped'|'in-progress'|'planned')} status
  * @property {string[]} technologies
@@ -28,6 +30,9 @@ export const projects = [
       'Build a recruiter-facing portfolio that can evolve without coupling every page to a single content source.',
     outcome:
       'A responsive Next.js foundation with reusable components, centralized content, and consistent SEO across routes.',
+    approach:
+      'A reusable component system, centralized content layer, and progressive enhancement for motion and theme preferences.',
+    visual: 'portfolio',
     tags: ['frontend'],
     status: 'shipped',
     technologies: ['Next.js', 'React', 'Tailwind CSS', 'Netlify'],
