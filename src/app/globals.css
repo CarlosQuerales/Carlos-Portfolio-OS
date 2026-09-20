@@ -123,17 +123,7 @@ html[data-theme='light'] {
 
 body {
   background-color: var(--color-bg);
-  background-image:
-    var(--gradient-page),
-    linear-gradient(
-      to right,
-      color-mix(in srgb, var(--color-border) 22%, transparent) 1px,
-      transparent 1px
-    );
-  background-size:
-    auto,
-    min(100%, 80rem) 100%,
-    auto;
+  background-image: var(--gradient-page);
   background-position: center top;
   background-attachment: fixed;
   color: var(--color-fg);
