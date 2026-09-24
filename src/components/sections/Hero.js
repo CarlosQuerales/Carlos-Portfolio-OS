@@ -28,7 +28,7 @@ export function Hero({ profile }) {
           </p>
 
           <h1 className="font-display text-fg mt-3 max-w-3xl text-5xl leading-[0.94] font-semibold tracking-[-0.06em] text-balance sm:text-6xl lg:text-[4.6rem] xl:text-[5.25rem]">
-            I can read the stack trace 
+            I can read the stack trace
             <span className="block bg-[image:var(--gradient-brand)] bg-clip-text text-transparent">
               and explain it in plain English.
             </span>
@@ -59,13 +59,6 @@ export function Hero({ profile }) {
         </div>
 
         <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
-          <span
-            aria-hidden="true"
-            className="font-display text-accent/8 absolute -top-14 -left-20 -z-10 text-[12rem] leading-none font-semibold tracking-[-0.04em] sm:text-[16rem] lg:-top-24 lg:-left-28 lg:text-[20rem]"
-          >
-            CQ
-          </span>
-          <div className="absolute -inset-3 rounded-[2.5rem] bg-[image:var(--gradient-brand)] opacity-30 blur-2xl" />
           <div className="border-border bg-surface relative overflow-hidden rounded-[2.25rem] border p-2 shadow-[var(--shadow-lift)]">
             <Image
               src="/images/carlos-querales-profile.jpg"
