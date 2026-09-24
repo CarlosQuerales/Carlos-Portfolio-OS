@@ -8,8 +8,6 @@ export function Hero({ profile }) {
   return (
     <div className="relative isolate flex min-h-[calc(100svh-4.5rem)] items-center overflow-hidden py-10 sm:py-14 lg:py-12">
       <div className="pointer-events-none absolute inset-0 -z-20" aria-hidden="true">
-        <div className="bg-accent/10 absolute top-[8%] right-[8%] h-72 w-72 rounded-full blur-[100px] sm:h-[28rem] sm:w-[28rem]" />
-        <div className="bg-secondary/10 absolute bottom-[4%] left-[24%] h-64 w-64 rounded-full blur-[110px]" />
         <div className="border-border/70 absolute top-[12%] right-[7%] h-[34rem] w-[34rem] rounded-full border" />
         <div className="border-border/40 absolute top-[19%] right-[13%] h-[25rem] w-[25rem] rounded-full border" />
       </div>
@@ -59,6 +57,7 @@ export function Hero({ profile }) {
         </div>
 
         <figure className="relative mx-auto w-full max-w-md lg:mx-0 lg:max-w-none">
+          <div className="absolute -inset-10 rounded-[45%] bg-[image:var(--gradient-brand)] [mask-image:radial-gradient(ellipse_at_center,black_34%,transparent_72%)] opacity-30 blur-2xl" />
           <div className="border-border bg-surface relative overflow-hidden rounded-[2.25rem] border p-2 shadow-[var(--shadow-lift)]">
             <Image
               src="/images/carlos-querales-profile.jpg"
