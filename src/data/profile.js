@@ -3,24 +3,36 @@
  * @property {string} name
  * @property {string} role
  * @property {string} location
- * @property {string} heroStatement
+ * @property {string} availability
+ * @property {string} serviceLine
+ * @property {string} positioning
  * @property {string} summary
+ * @property {{ value: string, label: string }[]} signals
  * @property {string[]} focusAreas
+ * @property {string} resumePath
  */
 
 /** @type {Profile} */
 export const profile = {
-  name: 'Carlos Querales',
-  role: 'Front-End Developer & Customer Success Engineer',
+  name: 'Carlos M. Querales Daza',
+  role: 'Customer Success Engineer',
   location: 'Venezuela · Open to remote work',
-  heroStatement:
-    'I sit between engineering and customer outcomes — I can read the stack trace and explain it in plain English.',
+  availability: 'Open to remote opportunities',
+  serviceLine: 'Technical Support · IT Service Delivery · SaaS',
+  positioning:
+    'Solving complex technical problems, managing customer relationships, and connecting Customer Success with Engineering.',
   summary:
-    'Computer Science graduate with 10+ years of experience across customer-facing technical roles, front-end development, and WordPress. I enjoy turning technical investigation into clear next steps for customers and collaborating with engineering and product teams to move issues toward resolution.',
-  focusAreas: [
-    'Front-End Development (React, JavaScript)',
-    'Customer Success Engineering',
-    'Technical Solutions & Integrations',
-    'WordPress & PHP',
+    'Customer Success Engineer with 10+ years across technical support, IT service delivery, and web platforms. I bridge customers and engineering by diagnosing issues, coordinating the right teams, and turning technical complexity into confident next steps.',
+  signals: [
+    { value: '10+', label: 'Years of experience' },
+    { value: 'EN · ES', label: 'Bilingual support' },
+    { value: 'Remote', label: 'International teams' },
   ],
+  focusAreas: [
+    'Customer Success Engineering',
+    'Technical Support & Incident Management',
+    'Service Delivery & Team Leadership',
+    'Web Platforms, APIs & Integrations',
+  ],
+  resumePath: '/documents/carlos-querales-customer-success-resume.pdf',
 };

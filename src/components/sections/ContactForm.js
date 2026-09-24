@@ -4,7 +4,7 @@ import { useState } from 'react';
 import { Button } from '@/components/ui/Button';
 
 const FIELD_CLASSES =
-  'w-full rounded-md border border-border bg-surface px-3.5 py-2.5 text-sm text-fg placeholder:text-fg-muted focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent';
+  'w-full rounded-[var(--radius-control)] border border-border bg-surface px-3.5 py-3 text-base text-fg shadow-[var(--shadow-card)] transition-[background-color,border-color,box-shadow] duration-[var(--duration-fast)] placeholder:text-fg-muted hover:border-border-strong focus-visible:border-accent focus-visible:bg-surface-raised';
 
 export function ContactForm() {
   const [status, setStatus] = useState(

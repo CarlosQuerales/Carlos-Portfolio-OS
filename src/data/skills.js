@@ -10,30 +10,31 @@
 /** @type {SkillGroup[]} */
 export const skillGroups = [
   {
-    category: 'Front-End',
-    items: ['React', 'JavaScript', 'Next.js', 'Tailwind CSS', 'Responsive Design'],
-  },
-  {
-    category: 'Back-End & Integrations',
-    items: ['PHP', 'WordPress', 'REST APIs', 'Node.js'],
-  },
-  {
-    category: 'Customer Success & Support',
+    category: 'Customer Success & Service Delivery',
     items: [
       'Technical Support',
-      'IT Service Management (ITSM)',
       'Incident & Problem Management',
-      'Stakeholder Management',
+      'ITIL Practices',
+      'SLA & KPI Management',
+      'Stakeholder Communication',
     ],
   },
   {
-    category: 'Process & Collaboration',
+    category: 'Web Platforms & Integrations',
+    items: ['WordPress', 'WooCommerce', 'REST APIs', 'PHP', 'MySQL', 'Payments & CRM'],
+  },
+  {
+    category: 'Technical Delivery',
+    items: ['JavaScript', 'React', 'Next.js', 'Git & GitHub', 'QA', 'Browser DevTools'],
+  },
+  {
+    category: 'Leadership & Collaboration',
     items: [
-      'Agile',
-      'QA',
-      'Git & GitHub',
+      'Team Leadership',
+      'Cross-functional Coordination',
       'Product Collaboration',
-      'Cross-team collaboration with .NET/C# engineering',
+      'Agile Delivery',
+      'Release Validation',
     ],
   },
 ];

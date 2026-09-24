@@ -19,27 +19,16 @@ const body = IBM_Plex_Sans({
   display: 'swap',
 });
 
-export const metadata = buildMetadata({
-  title: SITE_NAME,
-  description: SITE_TAGLINE,
-});
-
-// Blocking, inline, and tiny on purpose: this runs before first paint so
-// the theme is correct on load with zero flash — the same problem
-// next-themes solves, solved here without the dependency.
-const THEME_INIT_SCRIPT = `
-(function () {
-  try {
-    var stored = window.localStorage.getItem('theme');
-    var theme = stored === 'light' || stored === 'dark'
-      ? stored
-      : (window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark');
-    document.documentElement.setAttribute('data-theme', theme);
-  } catch (e) {
-    document.documentElement.setAttribute('data-theme', 'dark');
-  }
-})();
-`;
+export const metadata = {
+  ...buildMetadata({
+    title: SITE_NAME,
+    description: SITE_TAGLINE,
+  }),
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon.svg',
+  },
+};
 
 export default function RootLayout({ children }) {
   return (
@@ -48,9 +37,6 @@ export default function RootLayout({ children }) {
       className={`${heading.variable} ${body.variable}`}
       suppressHydrationWarning
     >
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
-      </head>
       <body className="flex min-h-screen flex-col antialiased">
         <SkipToContent />
         <Navbar />

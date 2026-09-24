@@ -2,24 +2,30 @@ import Link from 'next/link';
 import { NAV_ITEMS, SITE_NAME } from '@/lib/constants';
 import { Container } from '@/components/ui/Container';
 import { ThemeToggle } from '@/components/ui/ThemeToggle';
+import { NavLink } from '@/components/layout/NavLink';
+import { BrandMark } from '@/components/ui/BrandMark';
 
 export function Navbar() {
   return (
-    <header className="border-border border-b">
-      <Container className="flex h-16 items-center justify-between">
-        <Link href="/" className="font-display text-fg text-base font-semibold">
-          {SITE_NAME}
+    <header className="border-border bg-bg/82 sticky top-0 z-40 border-b backdrop-blur-xl">
+      <Container className="flex h-[4.5rem] items-center justify-between">
+        <Link
+          href="/"
+          aria-label={`${SITE_NAME} — Home`}
+          className="group flex items-center gap-3 rounded-[var(--radius-control)]"
+        >
+          <BrandMark className="h-10 w-10 transition-transform duration-[var(--duration-standard)] group-hover:scale-[1.03] group-hover:-rotate-3" />
+          <span className="font-display text-fg group-hover:text-accent text-base font-semibold transition-colors">
+            {SITE_NAME}
+          </span>
         </Link>
 
-        <nav aria-label="Primary" className="hidden items-center gap-1 md:flex">
+        <nav
+          aria-label="Primary"
+          className="border-border bg-surface/55 hidden items-center gap-1 rounded-[var(--radius-pill)] border p-1 shadow-[var(--shadow-card)] md:flex"
+        >
           {NAV_ITEMS.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className="text-fg-muted hover:text-accent rounded-md px-3 py-2 text-sm transition-colors"
-            >
-              {item.label}
-            </Link>
+            <NavLink key={item.href} href={item.href} label={item.label} />
           ))}
         </nav>
 
@@ -33,7 +39,7 @@ export function Navbar() {
           <details className="relative md:hidden">
             <summary
               aria-label="Open menu"
-              className="border-border text-fg-muted flex h-9 w-9 cursor-pointer list-none items-center justify-center rounded-md border marker:content-[''] [&::-webkit-details-marker]:hidden"
+              className="border-border bg-surface/60 text-fg-muted hover:border-border-strong hover:text-fg flex h-10 w-10 cursor-pointer list-none items-center justify-center rounded-[var(--radius-control)] border transition-colors marker:content-[''] [&::-webkit-details-marker]:hidden"
             >
               <svg
                 viewBox="0 0 24 24"
@@ -48,16 +54,10 @@ export function Navbar() {
             </summary>
             <nav
               aria-label="Primary (mobile)"
-              className="border-border bg-surface absolute top-12 right-0 z-50 flex w-48 flex-col gap-1 rounded-lg border p-2 shadow-lg"
+              className="border-border bg-surface absolute top-12 right-0 z-50 flex w-52 flex-col gap-1 rounded-[var(--radius-card)] border p-2 shadow-[var(--shadow-lift)]"
             >
               {NAV_ITEMS.map((item) => (
-                <Link
-                  key={item.href}
-                  href={item.href}
-                  className="text-fg-muted hover:bg-bg hover:text-accent rounded-md px-3 py-2 text-sm transition-colors"
-                >
-                  {item.label}
-                </Link>
+                <NavLink key={item.href} href={item.href} label={item.label} mobile />
               ))}
             </nav>
           </details>

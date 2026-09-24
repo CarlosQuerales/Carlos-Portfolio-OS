@@ -1,5 +1,6 @@
 import { Section } from '@/components/ui/Section';
 import { CaseStudyCard } from '@/components/sections/CaseStudyCard';
+import { PageHeader } from '@/components/ui/PageHeader';
 import { buildMetadata } from '@/lib/seo';
 import { getCaseStudies } from '@/services/content';
 
@@ -14,13 +15,11 @@ export default function CaseStudiesPage() {
 
   return (
     <Section className="pt-16">
-      <h1 className="font-display text-fg text-3xl font-semibold sm:text-4xl">
-        Case Studies
-      </h1>
-      <p className="text-fg-muted mt-4 max-w-2xl text-lg leading-relaxed">
-        A clear look at how I frame technical problems, evaluate tradeoffs, and
-        communicate outcomes. Metrics appear only when they can be shared and verified.
-      </p>
+      <PageHeader
+        eyebrow="Technical thinking"
+        title="Case studies"
+        description="A clear look at how I frame technical problems, evaluate tradeoffs, and communicate outcomes. Metrics appear only when they can be shared and verified."
+      />
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         {caseStudies.map((caseStudy) => (

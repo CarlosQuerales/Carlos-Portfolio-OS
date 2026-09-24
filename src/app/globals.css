@@ -1,43 +1,113 @@
 @import 'tailwindcss';
 
-/*
- * Design tokens — the single source of truth for the palette and type
- * scale agreed in the roadmap doc. Deliberately not the generic
- * near-black + acid-green/vermilion "AI portfolio" default: this uses a
- * warm ink (not pure black) paired with a muted teal, not a saturated
- * neon accent.
- */
+/* Carlos Querales visual system: technical precision with human warmth. */
+:root,
 :root[data-theme='dark'] {
-  --bg: #0f1115;
-  --surface: #171a20;
-  --fg: #f2f1ed;
-  --fg-muted: #9ba0aa;
-  --border: #262b33;
-  --accent: #2aa198;
-  --accent-hover: #35b8ae;
-  --accent-contrast: #0f1115;
+  --bg: #071318;
+  --surface: #0e1d23;
+  --surface-raised: #152830;
+  --surface-soft: #102129;
+  --fg: #f2fbfa;
+  --fg-muted: #9db0b5;
+  --border: #244049;
+  --border-strong: #37616b;
+  --accent: #58dfcf;
+  --accent-hover: #7ae9dc;
+  --accent-soft: #123c3b;
+  --accent-contrast: #041513;
+  --secondary: #91a3ff;
+  --secondary-soft: #202a50;
+  --gradient-brand: linear-gradient(135deg, #58dfcf 0%, #68baf6 52%, #91a3ff 100%);
+  --gradient-surface: linear-gradient(145deg, #13252c 0%, #0d1b21 72%);
+  --gradient-page:
+    radial-gradient(circle at 82% 6%, rgb(88 223 207 / 12%), transparent 28rem),
+    radial-gradient(circle at 8% 42%, rgb(145 163 255 / 8%), transparent 26rem);
+  --shadow-card: 0 22px 65px -42px rgb(0 8 12 / 82%);
+  --shadow-lift: 0 30px 80px -40px rgb(0 8 12 / 92%);
 }
 
 :root[data-theme='light'] {
-  --bg: #f7f6f3;
+  --bg: #f4f8f8;
   --surface: #ffffff;
-  --fg: #14171a;
-  --fg-muted: #5b6169;
-  --border: #e3e1db;
-  --accent: #1f7d75;
-  --accent-hover: #196a63;
-  --accent-contrast: #f7f6f3;
+  --surface-raised: #e9f1f2;
+  --surface-soft: #eef5f5;
+  --fg: #09191f;
+  --fg-muted: #53676d;
+  --border: #d5e2e4;
+  --border-strong: #afc6ca;
+  --accent: #087e76;
+  --accent-hover: #056a64;
+  --accent-soft: #d9f0ed;
+  --accent-contrast: #ffffff;
+  --secondary: #4e63ce;
+  --secondary-soft: #e7eaff;
+  --gradient-brand: linear-gradient(135deg, #087e76 0%, #2888b8 52%, #596fd8 100%);
+  --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f3f8f8 76%);
+  --gradient-page:
+    radial-gradient(circle at 82% 6%, rgb(8 126 118 / 9%), transparent 28rem),
+    radial-gradient(circle at 8% 42%, rgb(78 99 206 / 6%), transparent 26rem);
+  --shadow-card: 0 22px 60px -42px rgb(9 37 45 / 38%);
+  --shadow-lift: 0 28px 72px -38px rgb(9 37 45 / 48%);
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    --bg: #f4f8f8;
+    --surface: #ffffff;
+    --surface-raised: #e9f1f2;
+    --surface-soft: #eef5f5;
+    --fg: #09191f;
+    --fg-muted: #53676d;
+    --border: #d5e2e4;
+    --border-strong: #afc6ca;
+    --accent: #087e76;
+    --accent-hover: #056a64;
+    --accent-soft: #d9f0ed;
+    --accent-contrast: #ffffff;
+    --secondary: #4e63ce;
+    --secondary-soft: #e7eaff;
+    --gradient-brand: linear-gradient(135deg, #087e76 0%, #2888b8 52%, #596fd8 100%);
+    --gradient-surface: linear-gradient(145deg, #ffffff 0%, #f3f8f8 76%);
+    --gradient-page:
+      radial-gradient(circle at 82% 6%, rgb(8 126 118 / 9%), transparent 28rem),
+      radial-gradient(circle at 8% 42%, rgb(78 99 206 / 6%), transparent 26rem);
+    --shadow-card: 0 22px 60px -42px rgb(9 37 45 / 38%);
+    --shadow-lift: 0 28px 72px -38px rgb(9 37 45 / 48%);
+  }
+}
+
+:root {
+  --radius-control: 0.875rem;
+  --radius-card: 1.5rem;
+  --radius-pill: 999px;
+  --content-width: 72rem;
+  --space-gutter: clamp(1.25rem, 4vw, 2rem);
+  --space-section: clamp(4rem, 8vw, 7rem);
+  --type-display: clamp(2.75rem, 6vw, 4.75rem);
+  --type-heading-1: clamp(2.25rem, 5vw, 3.5rem);
+  --type-heading-2: clamp(1.75rem, 3vw, 2.5rem);
+  --leading-heading: 1.08;
+  --tracking-heading: -0.04em;
+  --focus-ring: 0 0 0 3px color-mix(in srgb, var(--accent) 32%, transparent);
+  --duration-fast: 160ms;
+  --duration-standard: 240ms;
 }
 
 @theme inline {
   --color-bg: var(--bg);
   --color-surface: var(--surface);
+  --color-surface-raised: var(--surface-raised);
+  --color-surface-soft: var(--surface-soft);
   --color-fg: var(--fg);
   --color-fg-muted: var(--fg-muted);
   --color-border: var(--border);
+  --color-border-strong: var(--border-strong);
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
+  --color-accent-soft: var(--accent-soft);
   --color-accent-contrast: var(--accent-contrast);
+  --color-secondary: var(--secondary);
+  --color-secondary-soft: var(--secondary-soft);
 
   --font-sans: var(--font-body);
   --font-display: var(--font-heading);
@@ -45,6 +115,7 @@
 
 html {
   color-scheme: dark;
+  scroll-padding-top: 6rem;
 }
 html[data-theme='light'] {
   color-scheme: light;
@@ -52,8 +123,71 @@ html[data-theme='light'] {
 
 body {
   background-color: var(--color-bg);
+  background-image: var(--gradient-page);
+  background-position: center top;
+  background-attachment: fixed;
   color: var(--color-fg);
   font-family: var(--font-sans);
+  font-size: 1rem;
+  line-height: 1.65;
+  text-rendering: optimizeLegibility;
+}
+
+h1,
+h2,
+h3 {
+  text-wrap: balance;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-feature-settings:
+    'ss01' 1,
+    'ss03' 1;
+}
+
+a,
+button,
+summary {
+  -webkit-tap-highlight-color: transparent;
+}
+
+:where(a, button, input, textarea, select, summary):focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
+  box-shadow: var(--focus-ring);
+}
+
+::selection {
+  background: var(--color-accent);
+  color: var(--color-accent-contrast);
+}
+
+/* Progressive scroll reveals: unsupported browsers keep content fully visible. */
+@supports (animation-timeline: view()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .scroll-reveal {
+      animation-name: cq-scroll-reveal;
+      animation-duration: 1ms;
+      animation-fill-mode: both;
+      animation-timing-function: ease-out;
+      animation-timeline: view();
+      animation-range: entry 0% entry 100%;
+    }
+  }
+}
+
+@keyframes cq-scroll-reveal {
+  from {
+    opacity: 0.25;
+    transform: translateY(2rem);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Respect reduced-motion preferences site-wide. */
