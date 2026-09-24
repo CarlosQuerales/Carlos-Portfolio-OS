@@ -28,9 +28,9 @@ export function Hero({ profile }) {
           </p>
 
           <h1 className="font-display text-fg mt-3 max-w-3xl text-5xl leading-[0.94] font-semibold tracking-[-0.06em] text-balance sm:text-6xl lg:text-[4.6rem] xl:text-[5.25rem]">
-            Customer Success
+            I can read the stack trace 
             <span className="block bg-[image:var(--gradient-brand)] bg-clip-text text-transparent">
-              Engineer
+              and explain it in plain English.
             </span>
           </h1>
 
@@ -54,7 +54,7 @@ export function Hero({ profile }) {
             download
             className="text-fg-muted hover:text-accent decoration-border-strong mt-4 text-sm font-medium underline underline-offset-4 transition-colors"
           >
-            Download résumé
+            Download resume
           </a>
         </div>
 
