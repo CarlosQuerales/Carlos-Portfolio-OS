@@ -24,8 +24,8 @@
  * @property {string} [demoUrl]
  */
 
-const image = (file, label, alt) => ({
-  src: `/images/projects/${file}.jpg`,
+const image = (file, label, alt, extension = 'jpg') => ({
+  src: `/images/projects/${file}.${extension}`,
   label,
   alt,
 });
@@ -276,6 +276,156 @@ export const projects = [
     tags: ['frontend'],
     status: 'shipped',
     technologies: ['Housing UX', 'Visual storytelling', 'Modular UI'],
+  },
+  {
+    slug: 'nacg-resource-library',
+    title: 'NACG Resource Library',
+    sector: 'Childhood grief support',
+    summary:
+      'A multilingual resource library with audience pathways, structured filters, and accessible support content.',
+    description:
+      'The provided production screenshot shows a Spanish-language resource experience for the National Alliance for Children’s Grief. Clear audience pathways lead into a searchable library of educational materials and support resources.',
+    role: 'Project contribution details pending Carlos’s confirmation.',
+    challenge: 'Project brief and original requirements have not yet been documented.',
+    outcome: 'Measurable outcomes and Carlos’s exact contribution await confirmation.',
+    approach:
+      'The visible interface combines audience-based entry points, resource filters, card-based results, and accessibility controls.',
+    images: [
+      image(
+        'nacg-resource-library',
+        'Resource library',
+        'NACG Spanish resource library showing audience pathways, filters, and support-resource cards',
+        'avif'
+      ),
+    ],
+    tags: ['frontend'],
+    status: 'shipped',
+    technologies: ['Resource discovery', 'Filtering UX', 'Accessibility'],
+  },
+  {
+    slug: 'nasddds-state-agencies',
+    title: 'NASDDDS State Agencies',
+    sector: 'Public services directory',
+    summary:
+      'A state-agency directory that turns a large national information set into a structured browsing experience.',
+    description:
+      'The supplied project capture presents the NASDDDS state-agency directory, combining an introductory map with a consistent, state-by-state information system for public-service contacts.',
+    role: 'Project contribution details pending Carlos’s confirmation.',
+    challenge: 'Project brief and original requirements have not yet been documented.',
+    outcome: 'Measurable outcomes and Carlos’s exact contribution await confirmation.',
+    approach:
+      'The visible implementation uses geographic orientation, repeatable agency records, and restrained information hierarchy.',
+    images: [
+      image(
+        'nasddds-state-agencies',
+        'State directory',
+        'NASDDDS State Agencies page showing a United States map and structured agency listings',
+        'avif'
+      ),
+    ],
+    tags: ['frontend'],
+    status: 'shipped',
+    technologies: ['Directory UX', 'Information architecture', 'Responsive UI'],
+  },
+  {
+    slug: 'core-knowledge-store',
+    title: 'Core Knowledge Store',
+    sector: 'Education e-commerce',
+    summary:
+      'An educational storefront with product discovery, detailed filtering, and clear catalog hierarchy.',
+    description:
+      'The provided store capture shows a product-led Core Knowledge experience with instructional context, account actions, category filters, and an extensive educational catalog.',
+    role: 'Project contribution details pending Carlos’s confirmation.',
+    challenge: 'Project brief and original requirements have not yet been documented.',
+    outcome: 'Measurable outcomes and Carlos’s exact contribution await confirmation.',
+    approach:
+      'The visible interface combines prominent commerce actions, multi-faceted filtering, product cards, and a consistent educational brand system.',
+    images: [
+      image(
+        'core-knowledge-store',
+        'Bookstore',
+        'Core Knowledge bookstore showing introductory guidance, filters, and educational products',
+        'avif'
+      ),
+    ],
+    tags: ['frontend'],
+    status: 'shipped',
+    technologies: ['E-commerce UX', 'Catalog filters', 'Product discovery'],
+  },
+  {
+    slug: 'civil-rights-corps',
+    title: 'Civil Rights Corps',
+    sector: 'Civil rights & advocacy',
+    summary:
+      'A high-impact advocacy experience combining institutional credibility with expressive campaign storytelling.',
+    description:
+      'The supplied full-page capture shows Civil Rights Corps through bold editorial typography, organizational context, impact figures, issue storytelling, and location-based work.',
+    role: 'Project contribution details pending Carlos’s confirmation.',
+    challenge: 'Project brief and original requirements have not yet been documented.',
+    outcome: 'Measurable outcomes and Carlos’s exact contribution await confirmation.',
+    approach:
+      'The visible design uses strong campaign hierarchy, mixed-media visuals, impact modules, and clear action pathways.',
+    images: [
+      image(
+        'civil-rights-corps',
+        'Homepage',
+        'Civil Rights Corps homepage showing campaign messaging, organizational impact, and advocacy content',
+        'avif'
+      ),
+    ],
+    tags: ['frontend'],
+    status: 'shipped',
+    technologies: ['Advocacy UX', 'Impact storytelling', 'Editorial UI'],
+  },
+  {
+    slug: 'all-kids-play',
+    title: 'All Kids Play',
+    sector: 'Youth sports nonprofit',
+    summary:
+      'An energetic nonprofit site that connects youth-sports access, mission storytelling, and campaign action.',
+    description:
+      'The provided production capture shows All Kids Play through a campaign-led hero, mission and need sections, program pathways, impact figures, and donation-focused actions.',
+    role: 'Project contribution details pending Carlos’s confirmation.',
+    challenge: 'Project brief and original requirements have not yet been documented.',
+    outcome: 'Measurable outcomes and Carlos’s exact contribution await confirmation.',
+    approach:
+      'The visible interface pairs energetic photography and typography with clear program, grant, impact, and donation pathways.',
+    images: [
+      image(
+        'all-kids-play',
+        'Homepage',
+        'All Kids Play homepage showing the Back in the Game campaign and youth-sports mission content',
+        'avif'
+      ),
+    ],
+    tags: ['frontend'],
+    status: 'shipped',
+    technologies: ['Campaign UX', 'Nonprofit storytelling', 'Responsive UI'],
+  },
+  {
+    slug: 'nature-and-culture',
+    title: 'Nature and Culture',
+    sector: 'Conservation & climate',
+    summary:
+      'An immersive conservation experience grounded in real landscapes, measurable impact, and regional storytelling.',
+    description:
+      'The supplied homepage capture presents Nature and Culture through immersive field imagery, conservation context, impact figures, regional work, current stories, and donation pathways.',
+    role: 'Project contribution details pending Carlos’s confirmation.',
+    challenge: 'Project brief and original requirements have not yet been documented.',
+    outcome: 'Measurable outcomes and Carlos’s exact contribution await confirmation.',
+    approach:
+      'The visible design combines cinematic imagery, data-led impact storytelling, geographic context, and restrained calls to action.',
+    images: [
+      image(
+        'nature-and-culture',
+        'Homepage',
+        'Nature and Culture homepage showing rainforest imagery, conservation impact, and regional programs',
+        'avif'
+      ),
+    ],
+    tags: ['frontend'],
+    status: 'shipped',
+    technologies: ['Conservation storytelling', 'Impact data', 'Editorial UI'],
   },
   {
     slug: 'portfolio-os',
