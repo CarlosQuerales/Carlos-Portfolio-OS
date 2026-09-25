@@ -14,10 +14,11 @@ export function Navbar() {
           aria-label={`${SITE_NAME} — Home`}
           className="group flex items-center gap-3 rounded-[var(--radius-control)]"
         >
-          <BrandMark className="h-10 w-10 transition-transform duration-[var(--duration-standard)] group-hover:scale-[1.03] group-hover:-rotate-3" />
-          <span className="font-display text-fg group-hover:text-accent text-base font-semibold transition-colors">
-            {SITE_NAME}
-          </span>
+          <BrandMark
+            variant="lockup"
+            markClassName="h-10 w-10 transition-transform duration-[var(--duration-standard)] group-hover:scale-[1.03]"
+            labelClassName="group-hover:text-accent"
+          />
         </Link>
 
         <nav

@@ -25,7 +25,7 @@ export const metadata = {
     description: SITE_TAGLINE,
   }),
   icons: {
-    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml', sizes: 'any' }],
     shortcut: '/favicon.svg',
   },
 };

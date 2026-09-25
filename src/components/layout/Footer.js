@@ -9,10 +9,7 @@ export function Footer() {
     <footer className="border-border bg-surface/50 border-t">
       <Container className="grid gap-8 py-10 sm:grid-cols-[1fr_auto] sm:items-end">
         <div>
-          <div className="flex items-center gap-3">
-            <BrandMark className="h-9 w-9" />
-            <p className="font-display text-fg text-lg font-semibold">{SITE_NAME}</p>
-          </div>
+          <BrandMark variant="lockup" markClassName="h-9 w-9" labelClassName="text-lg" />
           <p className="text-fg-muted mt-2 max-w-md text-sm leading-relaxed">
             Customer success and technical support, connected by clear investigation,
             communication, and ownership.
