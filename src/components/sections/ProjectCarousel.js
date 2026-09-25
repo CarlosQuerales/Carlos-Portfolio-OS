@@ -8,24 +8,27 @@ import { ProjectScreenshot } from '@/components/sections/ProjectScreenshot';
 /** @param {{ projects: import('@/data/projects').Project[] }} props */
 export function ProjectCarousel({ projects }) {
   const [activeIndex, setActiveIndex] = useState(0);
+  const [direction, setDirection] = useState('next');
   const touchStart = useRef(null);
   const project = projects[activeIndex];
 
   if (!project) return null;
 
-  const select = (index) => {
+  const select = (index, directionHint) => {
     const nextIndex = (index + projects.length) % projects.length;
+    if (nextIndex === activeIndex) return;
+    setDirection(directionHint ?? (nextIndex > activeIndex ? 'next' : 'previous'));
     setActiveIndex(nextIndex);
   };
 
   const onKeyDown = (event) => {
     if (event.key === 'ArrowLeft') {
       event.preventDefault();
-      select(activeIndex - 1);
+      select(activeIndex - 1, 'previous');
     }
     if (event.key === 'ArrowRight') {
       event.preventDefault();
-      select(activeIndex + 1);
+      select(activeIndex + 1, 'next');
     }
     if (event.key === 'Home') {
       event.preventDefault();
@@ -42,7 +45,7 @@ export function ProjectCarousel({ projects }) {
     const distance = event.changedTouches[0].clientX - touchStart.current;
     touchStart.current = null;
     if (Math.abs(distance) < 48) return;
-    select(activeIndex + (distance < 0 ? 1 : -1));
+    select(activeIndex + (distance < 0 ? 1 : -1), distance < 0 ? 'next' : 'previous');
   };
 
   return (
@@ -62,7 +65,11 @@ export function ProjectCarousel({ projects }) {
         Project {activeIndex + 1} of {projects.length}: {project.title}
       </p>
 
-      <article className="grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12">
+      <article
+        key={project.slug}
+        data-direction={direction}
+        className="project-carousel-slide grid gap-8 lg:grid-cols-12 lg:items-center lg:gap-12"
+      >
         <div className="lg:col-span-7">
           <ProjectScreenshot
             image={project.images[0]}
@@ -71,7 +78,7 @@ export function ProjectCarousel({ projects }) {
           />
         </div>
 
-        <div className="lg:col-span-5">
+        <div className="project-carousel-copy lg:col-span-5">
           <div className="flex items-center gap-4">
             <span className="text-accent font-mono text-sm font-semibold">
               {String(activeIndex + 1).padStart(2, '0')}
@@ -129,7 +136,7 @@ export function ProjectCarousel({ projects }) {
           </span>
           <button
             type="button"
-            onClick={() => select(activeIndex - 1)}
+            onClick={() => select(activeIndex - 1, 'previous')}
             aria-label="Previous project"
             className="border-border text-fg hover:border-accent hover:text-accent flex h-11 w-11 items-center justify-center rounded-full border transition-colors"
           >
@@ -137,7 +144,7 @@ export function ProjectCarousel({ projects }) {
           </button>
           <button
             type="button"
-            onClick={() => select(activeIndex + 1)}
+            onClick={() => select(activeIndex + 1, 'next')}
             aria-label="Next project"
             className="border-border text-fg hover:border-accent hover:text-accent flex h-11 w-11 items-center justify-center rounded-full border transition-colors"
           >

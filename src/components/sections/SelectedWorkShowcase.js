@@ -39,18 +39,32 @@ export function SelectedWorkShowcase({ projects }) {
         </p>
       </header>
 
-      <div className="scroll-reveal relative mt-12">
+      <section
+        id="featured-web-projects"
+        aria-labelledby="featured-web-projects-heading"
+        className="scroll-reveal relative mt-12"
+      >
+        <h3 id="featured-web-projects-heading" className="sr-only">
+          Featured web projects carousel
+        </h3>
         <ProjectCarousel projects={featuredProjects} />
-      </div>
+      </section>
 
       {archiveProjects.length > 0 && (
-        <div className="relative mt-16">
+        <section
+          id="more-selected-work"
+          aria-labelledby="more-selected-work-heading"
+          className="relative mt-16"
+        >
           <div className="mb-7 flex items-end justify-between gap-5">
             <div>
               <p className="text-secondary text-xs font-semibold tracking-[0.16em] uppercase">
                 More selected work
               </p>
-              <h3 className="font-display text-fg mt-2 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl">
+              <h3
+                id="more-selected-work-heading"
+                className="font-display text-fg mt-2 text-2xl font-semibold tracking-[-0.035em] sm:text-3xl"
+              >
                 Additional delivery and engineering work.
               </h3>
             </div>
@@ -63,25 +77,25 @@ export function SelectedWorkShowcase({ projects }) {
             {archiveProjects.map((project) => (
               <article
                 key={project.slug}
-                className="group border-border bg-surface/70 hover:border-border-strong overflow-hidden rounded-3xl border transition-[border-color,transform,box-shadow] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
+                className="group border-border bg-surface/70 hover:border-border-strong overflow-hidden rounded-3xl border transition-[border-color,transform,box-shadow] duration-[var(--duration-standard)] hover:-translate-y-1 hover:shadow-[var(--shadow-lift)]"
               >
                 {project.images?.[0] ? (
                   <ProjectScreenshot
                     image={project.images[0]}
-                    className="rounded-none border-0 border-b"
+                    className="rounded-none border-0 border-b transition-transform duration-500 ease-out group-hover:scale-[1.035]"
                     sizes="(min-width: 768px) 33vw, 100vw"
                   />
                 ) : (
                   <WorkVisual
                     variant={project.visual}
-                    className="min-h-0 rounded-none border-0 border-b"
+                    className="min-h-0 rounded-none border-0 border-b transition-transform duration-500 ease-out group-hover:scale-[1.035]"
                   />
                 )}
                 <div className="p-6">
                   <p className="text-accent text-[0.65rem] font-semibold tracking-[0.14em] uppercase">
                     {project.sector}
                   </p>
-                  <h4 className="font-display text-fg mt-2 text-xl font-semibold">
+                  <h4 className="font-display text-fg group-hover:text-accent mt-2 text-xl font-semibold transition-colors">
                     <Link href={`/projects/${project.slug}`}>{project.title}</Link>
                   </h4>
                   <p className="text-fg-muted mt-3 text-sm leading-relaxed">
@@ -103,7 +117,7 @@ export function SelectedWorkShowcase({ projects }) {
               </article>
             ))}
           </div>
-        </div>
+        </section>
       )}
 
       <div className="border-border relative mt-12 flex flex-wrap gap-3 border-t pt-8">
