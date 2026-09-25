@@ -4,6 +4,7 @@ import { Section } from '@/components/ui/Section';
 import { Badge } from '@/components/ui/Badge';
 import { Button } from '@/components/ui/Button';
 import { WorkVisual } from '@/components/sections/WorkVisual';
+import { ProjectScreenshot } from '@/components/sections/ProjectScreenshot';
 import { buildMetadata } from '@/lib/seo';
 import { getProjects, getProjectBySlug } from '@/services/content';
 
@@ -38,6 +39,10 @@ export default async function ProjectDetailPage({ params }) {
     notFound();
   }
 
+  const projects = getProjects();
+  const currentIndex = projects.findIndex((item) => item.slug === project.slug);
+  const nextProject = projects[(currentIndex + 1) % projects.length];
+
   return (
     <Section className="pt-16">
       <Link
@@ -51,7 +56,7 @@ export default async function ProjectDetailPage({ params }) {
         <div className="lg:col-span-5">
           <div className="flex flex-wrap items-center gap-3">
             <p className="text-accent text-xs font-semibold tracking-[0.16em] uppercase">
-              Production project
+              {project.sector}
             </p>
             <Badge tone={project.status === 'shipped' ? 'accent' : 'muted'}>
               {STATUS_LABEL[project.status]}
@@ -75,7 +80,15 @@ export default async function ProjectDetailPage({ params }) {
             ))}
           </div>
         </div>
-        <WorkVisual variant={project.visual} className="lg:col-span-7" />
+        {project.images?.[0] ? (
+          <ProjectScreenshot
+            image={project.images[0]}
+            priority
+            className="lg:col-span-7"
+          />
+        ) : (
+          <WorkVisual variant={project.visual} className="lg:col-span-7" />
+        )}
       </div>
 
       <ol className="border-border mt-16 border-y">
@@ -95,6 +108,38 @@ export default async function ProjectDetailPage({ params }) {
         ))}
       </ol>
 
+      {project.images?.length > 1 && (
+        <section className="mt-16" aria-labelledby="selected-pages-heading">
+          <div className="grid gap-4 sm:grid-cols-[1fr_auto] sm:items-end">
+            <div>
+              <p className="text-accent text-xs font-semibold tracking-[0.16em] uppercase">
+                Interface gallery
+              </p>
+              <h2
+                id="selected-pages-heading"
+                className="font-display text-fg mt-2 text-3xl font-semibold tracking-[-0.04em]"
+              >
+                Selected pages
+              </h2>
+            </div>
+            <p className="text-fg-muted max-w-xl text-sm leading-relaxed">
+              Real local project renders showing how the visual system extends beyond the
+              homepage.
+            </p>
+          </div>
+
+          <div className="mt-8 grid gap-6 lg:grid-cols-2">
+            {project.images.slice(1).map((image) => (
+              <ProjectScreenshot
+                key={image.src}
+                image={image}
+                sizes="(min-width: 1024px) 50vw, 100vw"
+              />
+            ))}
+          </div>
+        </section>
+      )}
+
       <div className="mt-10 flex flex-wrap gap-3">
         {project.repoUrl && (
           <Button href={project.repoUrl} target="_blank" rel="noreferrer">
@@ -107,6 +152,23 @@ export default async function ProjectDetailPage({ params }) {
           </Button>
         )}
       </div>
+
+      {nextProject && nextProject.slug !== project.slug && (
+        <nav
+          aria-label="Next project"
+          className="border-border mt-16 flex items-center justify-between gap-6 border-t pt-8"
+        >
+          <span className="text-fg-muted text-xs font-semibold tracking-[0.14em] uppercase">
+            Next project
+          </span>
+          <Link
+            href={`/projects/${nextProject.slug}`}
+            className="font-display text-fg hover:text-accent text-right text-xl font-semibold transition-colors sm:text-2xl"
+          >
+            {nextProject.title} <span aria-hidden="true">→</span>
+          </Link>
+        </nav>
+      )}
     </Section>
   );
 }

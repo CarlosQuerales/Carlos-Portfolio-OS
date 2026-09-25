@@ -9,15 +9,13 @@ import { Button } from '@/components/ui/Button';
 import {
   getProfile,
   getProjects,
-  getCaseStudies,
   getCustomerSuccess,
   getExperience,
 } from '@/services/content';
 
 export default function HomePage() {
   const profile = getProfile();
-  const featuredProjects = getProjects().slice(0, 3);
-  const featuredCaseStudies = getCaseStudies().slice(0, 2);
+  const projects = getProjects();
   const customerSuccess = getCustomerSuccess();
   const experience = getExperience();
 
@@ -32,10 +30,7 @@ export default function HomePage() {
       <SupportApproach steps={customerSuccess.supportSteps} />
       <TechnicalCustomerSuccess bridge={customerSuccess.expertiseBridge} />
 
-      <SelectedWorkShowcase
-        projects={featuredProjects}
-        caseStudies={featuredCaseStudies}
-      />
+      <SelectedWorkShowcase projects={projects} />
 
       <Section className="border-border border-t py-14 sm:py-20">
         <div className="bg-surface border-border relative grid gap-8 overflow-hidden rounded-3xl border p-7 shadow-[0_24px_80px_-48px_rgba(5,26,32,0.7)] sm:p-10 lg:grid-cols-[1fr_auto] lg:items-center">

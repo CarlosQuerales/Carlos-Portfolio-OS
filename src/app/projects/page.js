@@ -6,7 +6,7 @@ import { getProjects } from '@/services/content';
 
 export const metadata = buildMetadata({
   title: 'Selected Work',
-  description: 'Selected projects with clear roles, technical decisions, and outcomes.',
+  description: 'Selected web projects with real interface previews and delivery context.',
   path: '/projects',
 });
 
@@ -18,10 +18,10 @@ export default function ProjectsPage() {
       <PageHeader
         eyebrow="Build and delivery"
         title="Selected work"
-        description="Projects presented through the problem, my contribution, and the outcome. Live demos and source code are included where they can be shared publicly."
+        description="A visual archive of web delivery across advocacy, education, housing, culture, and technical product work. Contribution details are only stated where they have been confirmed."
       />
 
-      <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+      <div className="mt-10 grid gap-6 md:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard key={project.slug} project={project} />
         ))}
